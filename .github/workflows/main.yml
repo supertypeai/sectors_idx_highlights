@@ -31,7 +31,7 @@ jobs:
         password: ${{secrets.PASSWORD}}
         port: ${{secrets.port}}
         dbname: ${{secrets.dbname}}
-      run: python test.py
+      run: python main.py
 
     - name: commit files
       run: |
