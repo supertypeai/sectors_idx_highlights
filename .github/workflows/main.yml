@@ -1,8 +1,8 @@
-name: All Time Price Data Fetching batch 1 and 2
+name: Generate idx highlights content for idx
 
 on:
-  #schedule:
-   # - cron: '0 3,10 * * 1-5' # Run every weekdat at 11am and 5pm (Western Indonesia Time)
+  schedule:
+    - cron: '0 5 * * 6' # Run every saturday at 11am/12pm (Western Indonesia Time)
   
   workflow_dispatch:
       
