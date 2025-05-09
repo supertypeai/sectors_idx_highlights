@@ -29,3 +29,5 @@ def set_connection():
     
     except Exception as e:
         print(f"Failed to connect: {e}")
+
+set_connection()
