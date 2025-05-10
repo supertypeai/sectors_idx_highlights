@@ -21,7 +21,7 @@ jobs:
         python-version: '3.10' # Replace with your desired Python version
 
     - name: Install Poppler
-        run: sudo apt-get install -y poppler-utils
+      run: sudo apt-get install -y poppler-utils
 
     - name: Install dependencies
       run: |
