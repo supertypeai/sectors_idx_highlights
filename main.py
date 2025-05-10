@@ -20,11 +20,70 @@ from reportlab.pdfbase.pdfmetrics import stringWidth
 from io import BytesIO
 import requests
 
-import os
+
 from pdf2image import convert_from_path
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
+import base64
 
 # Load environment variables from .env
 load_dotenv()
+
+def send_email(image_folder):
+# CONFIG
+    # image_folder = "pdf_image/5 - 9 May 2025"  # folder where images are stored
+    allowed_extensions = {"jpg", "jpeg", "png"}
+    sendgrid_api_key = os.getenv('SENDGRID_API_KEY')
+    from_email = "gerald@supertype.ai"
+    to_email = ["geraldbryan9914@gmail.com"]#,"shusi.evelyn@gmail.com"]
+
+    # Collect all image files from the folder
+    image_files = [
+        os.path.join(image_folder, f)
+        for f in os.listdir(image_folder)
+        if f.split(".")[-1].lower() in allowed_extensions
+    ]
+
+    # Create attachments list
+    attachments = []
+    for path in image_files:
+        with open(path, "rb") as f:
+            data = f.read()
+            encoded_file = base64.b64encode(data).decode()
+
+        attachment = Attachment(
+            FileContent(encoded_file),
+            FileName(os.path.basename(path)),
+            FileType(f"image/{path.split('.')[-1]}"),
+            Disposition("attachment")
+        )
+        attachments.append(attachment)
+
+    # Create email
+    message = Mail(
+        from_email=from_email,
+        to_emails=to_email,
+        subject="All Images in Folder Attached",
+        html_content = """
+    <p>Hi,</p>
+    <p>Please find all image attachments for IDX Weekly Highlights.</p>
+    <p>Thank you<br><br><br>
+    Best regards,<br>
+    Gerald</p>
+    """
+
+    )
+
+    # Add attachments
+    message.attachment = attachments
+
+    # Send email via SendGrid
+    try:
+        sg = SendGridAPIClient(sendgrid_api_key)
+        response = sg.send(message)
+        print("Email sent successfully:", response.status_code)
+    except Exception as e:
+        print("Failed to send email:", str(e))
 
 def set_connection():
     # Fetch variables
@@ -1545,6 +1604,9 @@ def main():
     ## Save each page as a PNG in the same directory
     for i, img in enumerate(images):
         img.save(f"{output_dir}/{name}_page_{i+1}.png", "PNG")
+
+    # Send Email
+    send_email(output_dir)
 
 
 if __name__ == "__main__":
