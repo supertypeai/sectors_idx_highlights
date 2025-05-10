@@ -6,6 +6,7 @@ cycler==0.12.1
 fonttools==4.57.0
 idna==3.10
 kiwisolver==1.4.8
+MarkupSafe==3.0.2
 matplotlib==3.10.1
 numpy==2.2.5
 packaging==25.0
@@ -16,9 +17,13 @@ psycopg2-binary==2.9.10
 pyparsing==3.2.3
 python-dateutil==2.9.0.post0
 python-dotenv==1.1.0
+python-http-client==3.3.7
 pytz==2025.2
 reportlab==4.4.0
 requests==2.32.3
+sendgrid==6.12.0
 six==1.17.0
+starkbank-ecdsa==2.2.0
 tzdata==2025.2
 urllib3==2.4.0
+Werkzeug==2.3.8
