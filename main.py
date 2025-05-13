@@ -35,7 +35,7 @@ def send_email(image_folder):
     allowed_extensions = {"jpg", "jpeg", "png"}
     sendgrid_api_key = os.getenv('SENDGRID_API_KEY')
     from_email = "gerald@supertype.ai"
-    to_email = ["geraldbryan9914@gmail.com","shusi.evelyn@gmail.com"]
+    to_email = ["geraldbryan9914@gmail.com")#,"shusi.evelyn@gmail.com"]
 
     # Collect all image files from the folder
     image_files = [
