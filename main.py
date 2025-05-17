@@ -249,7 +249,7 @@ def mcap_chart(hist_mcap):
     # Market cap label
     for x, y in zip(shifted_xs, hist_mcap["market_cap"]):
         if np.isnan(float(y)):
-            ax.text(x, prev_y*0.75, "Exchange\nHoliday",
+            ax.text(x, ((hist_mcap["market_cap"].max() + hist_mcap["market_cap"].min())/2), "Exchange\nHoliday",
                 fontsize=20, fontproperties=inter_semi_bold,
                 ha='center', va='bottom', color="white")
         else:
