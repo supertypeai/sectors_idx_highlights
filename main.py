@@ -397,7 +397,6 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
         pdf.drawImage(f'asset/page/cover-{num_week}.png', 0, 0, width, height)
     else:
         pdf.drawImage('asset/page/cover-1.png', 0, 0, width, height)
-    pdf.drawImage('asset/page/cover.png', 0, 0, width, height)
     pdf.setFillColor(colors.white)
     pdf.setFont("Inter", 45)
     pdf.drawString(149, 765,  date_generator("cover"))
