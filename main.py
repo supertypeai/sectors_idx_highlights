@@ -392,6 +392,11 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
     pdf = canvas.Canvas(f"pdf_output/idx_highlights - {date_generator('cover')}.pdf", pagesize=(width, height))
 
     # Cover
+    num_week = round(datetime.today().day/7)
+    if num_week <= 4:
+        pdf.drawImage(f'asset/page/cover-{num_week}.png', 0, 0, width, height)
+    else:
+        pdf.drawImage('asset/page/cover-1.png', 0, 0, width, height)
     pdf.drawImage('asset/page/cover.png', 0, 0, width, height)
     pdf.setFillColor(colors.white)
     pdf.setFont("Inter", 45)
@@ -1606,7 +1611,7 @@ def main():
         img.save(f"{output_dir}/{name}_page_{i+1}.png", "PNG")
 
     # Send Email
-    send_email(output_dir)
+    # send_email(output_dir)
 
 
 if __name__ == "__main__":
