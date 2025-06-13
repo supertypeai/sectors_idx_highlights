@@ -195,11 +195,7 @@ def custom_formatter(x, pos):
     """
     Formatter for large numbers, adding suffixes like B (billion), M (million), T (trillion), etc.
     """
-    if x >= 1e18:  # Quintillions
-        return f'{x/1e18:.0f} QI'
-    elif x >= 1e15:  # Quadrillions
-        return f'{x/1e15:.0f} Q'
-    elif x >= 1e12:  # Trillions
+    if x >= 1e12:  # Trillions
         return f'{x/1e12:.0f} T'
     elif x >= 1e9:   # Billions
         return f'{x/1e9:.0f} B'
@@ -346,12 +342,8 @@ def format_number_short_1d(num):
     """
     num = float(num)
     
-    if abs(num) >= 1_000_000_000_000_000_000:  # Quintillion
-        return f"{num / 1_000_000_000_000_000_000:.1f}Qi"
-    elif abs(num) >= 1_000_000_000_000_000:  # Quadrillion
-        return f"{num / 1_000_000_000_000_000:.1f}Q"
-    elif abs(num) >= 1_000_000_000_000:  # Trillion
-        return f"{num / 1_000_000_000_000:.1f}T"
+    if abs(num) >= 1_000_000_000_000:  # Trillion
+        return f"{num / 1_000_000_000_000:,.1f}T"
     elif abs(num) >= 1_000_000_000:  # Billion
         return f"{num / 1_000_000_000:.1f}B"
     elif abs(num) >= 1_000_000:  # Million
@@ -368,12 +360,8 @@ def format_number_short_2d(num):
     """
     num = float(num)
     
-    if abs(num) >= 1_000_000_000_000_000_000:  # Quintillion
-        return f"{num / 1_000_000_000_000_000_000:.2f}Qi"
-    elif abs(num) >= 1_000_000_000_000_000:  # Quadrillion
-        return f"{num / 1_000_000_000_000_000:.2f}Q"
-    elif abs(num) >= 1_000_000_000_000:  # Trillion
-        return f"{num / 1_000_000_000_000:.2f}T"
+    if abs(num) >= 1_000_000_000_000:  # Trillion
+        return f"{num / 1_000_000_000_000:,.2f}T"
     elif abs(num) >= 1_000_000_000:  # Billion
         return f"{num / 1_000_000_000:.2f}B"
     elif abs(num) >= 1_000_000:  # Million
@@ -419,17 +407,17 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
     if mcap_change > 0:
         r, g, b = hex_to_rgb("#568475")  #green
         pdf.setFillColorRGB(r, g, b)
-        pdf.drawString(709, 772,  f'+{mcap_change}%')
+        pdf.drawString(670, 772,  f'+{mcap_change}%')
     if mcap_change < 0:
         r, g, b = hex_to_rgb("#D53E50")  #Orangey-red
         pdf.setFillColorRGB(r, g, b)
-        pdf.drawString(709, 772,  f'{mcap_change}%')
+        pdf.drawString(670, 772,  f'{mcap_change}%')
     if mcap_change == 0:
         pdf.setFillColor(colors.black)
-        pdf.drawString(709, 772,  f'{mcap_change}%')
+        pdf.drawString(670, 772,  f'{mcap_change}%')
 
     pdf.setFillColor(colors.black)
-    pdf.drawString(896, 772,  f"IDR {format_number_short_2d(mcap_changes['mcap_start'])}")
+    pdf.drawString(835, 772,  f"IDR {format_number_short_2d(mcap_changes['mcap_start'])}")
 
 
     # Top Gainers
@@ -494,150 +482,310 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
     pdf.drawImage('asset/page/page_2.png', 0, 0, width, height)
 
     # Indices Performance
-    for i in range (0,3):
-        pdf.setFont("Inter-Bold", 55)
-        if indices_changes.loc[i,'price_change_pct'] > 0:
-            r, g, b = hex_to_rgb("#568475")  #green
+    for i in range(0, 3):
+        # Calculate column center first
+        center = 270 + (335 * i)
+        y_percentage = height - 345
+        y_price = height - 397
+
+        # Retrieve values
+        percentage = indices_changes.loc[i, 'price_change_pct']
+        price = f"IDR {indices_changes.loc[i, 'end_price']}"
+
+        # Format percentage text
+        percentage_text = f"+{percentage}%" if percentage > 0 else f"{percentage}%"
+
+        # Calculate width for centering
+        percentage_width = pdf.stringWidth(percentage_text, "Inter-Bold", 55)
+        price_width = pdf.stringWidth(price, "Inter", 36)
+
+        percentage_x = center - (percentage_width / 2)
+        price_x = center - (price_width / 2)
+
+        # Set color and draw percentage first
+        if percentage > 0:
+            r, g, b = hex_to_rgb("#568475")  # green
             pdf.setFillColorRGB(r, g, b)
-            pdf.drawString(1200-1035+(335*i), height-335, f"+{indices_changes.loc[i,'price_change_pct']}%")
-        if indices_changes.loc[i,'price_change_pct'] < 0:
-            r, g, b = hex_to_rgb("#D53E50")  #Orangey-red
+        elif percentage < 0:
+            r, g, b = hex_to_rgb("#D53E50")  # orange-red
             pdf.setFillColorRGB(r, g, b)
-            pdf.drawString(1200-1035+(335*i), height-335, f"{indices_changes.loc[i,'price_change_pct']}%")
-        if indices_changes.loc[i,'price_change_pct'] == 0:
+        else:
             pdf.setFillColor(colors.black)
-            pdf.drawString(1200-1007+(335*i), height-335, "0.00%")
+
+        pdf.setFont("Inter-Bold", 55)
+        pdf.drawString(percentage_x, y_percentage, percentage_text)
+
+        # Reset color for price
         pdf.setFillColor(colors.black)
         pdf.setFont("Inter", 36)
-        pdf.drawString(1200-1025+(335*i), height-387, f"IDR {indices_changes.loc[i,'end_price']}")
+        pdf.drawString(price_x, y_price, price)
+
 
     # Top 3 Sectors
     for i in range(0,3):
-        pdf.drawImage(f'asset/sectors/{sectors_changes.loc[i,"sector"]}.png', 139 + (i*330), 913, 45,45, mask="auto")
+        pdf.drawImage(f'asset/sectors/{sectors_changes.loc[i,"sector"]}.png', 139 + (i*330), 900, 45,45, mask="auto")
         pdf.setFillColor(colors.white)
-        pdf.setFont("Inter-Bold", 18)
-        pdf.drawString(203+ (i*330), 940, sectors_changes.loc[i,'sub_sector'])
-        pdf.setFont("Inter", 18)
-        pdf.drawString(203+ (i*330), 913, f"IDR {format_number_short_2d(sectors_changes.loc[i,'total_market_cap'])}")
+        pdf.setFont("Inter-Bold", 24)
+        pdf.drawString(203+ (i*330), 925, sectors_changes.loc[i,'sub_sector'])
+        pdf.setFont("Inter", 20)
+        pdf.drawString(203+ (i*330), 900, f"IDR {format_number_short_2d(sectors_changes.loc[i,'total_market_cap'])}")
 
     for i in range(0,3):
-        # 1 week
+        #1w
         pdf.setFont("Inter", 18)
         pdf.setFillColor(colors.white)
-        pdf.drawString(142+ (i*330), 873, "1 Week")
+        onew_x = 155 + (i * 330)
+        onew_y = 850
+        pdf.drawString(onew_x, onew_y, "1 Week")
+        # Calculate the width of the YTD label
+        onew_width = pdf.stringWidth("1 Week", "Inter", 18)
 
-        pdf.setFont("Inter-Bold", 18)
-        if sectors_changes.loc[i,'mcap_change_1w'] > 0:
-            r, g, b = hex_to_rgb("#ABDDA4")  #green
+        # Center point for YTD
+        onew_center = 155 + (i * 330) + (onew_width / 2)
+
+        # now compute the width of the percentage text
+        percentage = sectors_changes.loc[i,'mcap_change_1w']
+
+        if percentage > 0:
+            r, g, b = hex_to_rgb("#ABDDA4")  # green
             pdf.setFillColorRGB(r, g, b)
-            pdf.drawString(138+ (i*330), 850, f"+{sectors_changes.loc[i,'mcap_change_1w']}%")
-        if sectors_changes.loc[i,'mcap_change_1w'] < 0:
-            r, g, b = hex_to_rgb("#D53E50")  #Orangey-red
+            text = f"+{percentage}%"
+        elif percentage < 0:
+            r, g, b = hex_to_rgb("#D53E50")  # orange-red
             pdf.setFillColorRGB(r, g, b)
-            pdf.drawString(138+ (i*330), 850, f"{sectors_changes.loc[i,'mcap_change_1w']}%")
-        if sectors_changes.loc[i,'mcap_change_1w'] == 0:
+            text = f"{percentage}%"
+        else:
             pdf.setFillColor(colors.white)
-            pdf.drawString(138+ (i*330), 850, "0.00%")
-        
+            text = "0.00%"    
+
+        # Measure text width for centering
+        text_width = pdf.stringWidth(text, "Inter-Bold", 18)
+        centered_x = onew_center - (text_width/2)
+
+        # Now draw the percentage text centered under YTD
+        percentage_y = 825
+        pdf.setFont("Inter-Bold", 18)
+        pdf.drawString(centered_x, percentage_y, text)
+
         #ytd
-        pdf.setFont("Inter", 18)
+        pdf.setFont("Inter", 14)
         pdf.setFillColor(colors.white)
-        pdf.drawString(237+ (i*330), 873, "YTD")
-        pdf.setFont("Inter-Bold", 18)
-        if sectors_changes.loc[i,'mcap_change_ytd'] > 0:
-            r, g, b = hex_to_rgb("#ABDDA4")  #green
+        ytd_x = 273 + (i * 330)
+        ytd_y = 850
+        pdf.drawString(ytd_x, ytd_y, "YTD")
+        # Calculate the width of the YTD label
+        ytd_width = pdf.stringWidth("YTD", "Inter", 14)
+
+        # Center point for YTD
+        ytd_center = 273 + (i * 330) + (ytd_width / 2)
+
+        # now compute the width of the percentage text
+        percentage = sectors_changes.loc[i,'mcap_change_ytd']
+
+        if percentage > 0:
+            r, g, b = hex_to_rgb("#ABDDA4")  # green
             pdf.setFillColorRGB(r, g, b)
-            pdf.drawString(230+ (i*330), 850, f"+{sectors_changes.loc[i,'mcap_change_ytd']}%")
-        if sectors_changes.loc[i,'mcap_change_ytd'] < 0:
-            r, g, b = hex_to_rgb("#D53E50")  #Orangey-red
+            text = f"+{percentage}%"
+        elif percentage < 0:
+            r, g, b = hex_to_rgb("#D53E50")  # orange-red
             pdf.setFillColorRGB(r, g, b)
-            pdf.drawString(230+ (i*330), 850, f"{sectors_changes.loc[i,'mcap_change_ytd']}%")
-        if sectors_changes.loc[i,'mcap_change_ytd'] == 0:
+            text = f"{percentage}%"
+        else:
             pdf.setFillColor(colors.white)
-            pdf.drawString(230+ (i*330), 850, "0.00%")
-        
-        #1 year
-        pdf.setFont("Inter", 18)
+            text = "0.00%"    
+
+        # Measure text width for centering
+        text_width = pdf.stringWidth(text, "Inter-Bold", 14)
+        centered_x = ytd_center - (text_width/2)
+
+        # Now draw the percentage text centered under YTD
+        percentage_y = 830
+        pdf.setFont("Inter-Bold", 14)
+        pdf.drawString(centered_x, percentage_y, text)
+
+        #1y
+        pdf.setFont("Inter", 14)
         pdf.setFillColor(colors.white)
-        pdf.drawString(332+ (i*330), 873, "1 Year")
-        pdf.setFont("Inter-Bold", 18)
-        if sectors_changes.loc[i,'mcap_change_1y'] > 0:
-            r, g, b = hex_to_rgb("#ABDDA4")  #green
+        oney_x = 345 + (i * 330)
+        oney_y = 850
+        pdf.drawString(oney_x, oney_y, "1 Year")
+        # Calculate the width of the YTD label
+        oney_width = pdf.stringWidth("1 Year", "Inter", 14)
+
+        # Center point for 1y
+        oney_center = 345 + (i * 330) + (oney_width / 2)
+
+        # now compute the width of the percentage text
+        percentage = sectors_changes.loc[i,'mcap_change_1y']
+
+        if percentage > 0:
+            r, g, b = hex_to_rgb("#ABDDA4")  # green
             pdf.setFillColorRGB(r, g, b)
-            pdf.drawString(327+ (i*330), 850, f"+{sectors_changes.loc[i,'mcap_change_1y']}%")
-        if sectors_changes.loc[i,'mcap_change_1y'] < 0:
-            r, g, b = hex_to_rgb("#D53E50")  #Orangey-red
+            text = f"+{percentage}%"
+        elif percentage < 0:
+            r, g, b = hex_to_rgb("#D53E50")  # orange-red
             pdf.setFillColorRGB(r, g, b)
-            pdf.drawString(327+ (i*330), 850, f"{sectors_changes.loc[i,'mcap_change_1y']}%")
-        if sectors_changes.loc[i,'mcap_change_1y'] == 0:
+            text = f"{percentage}%"
+        else:
             pdf.setFillColor(colors.white)
-            pdf.drawString(327+ (i*330), 850, "0.00%")
+            text = "0.00%"    
+
+        # Measure text width for centering
+        text_width = pdf.stringWidth(text, "Inter-Bold", 14)
+        centered_x = oney_center - (text_width/2)
+
+        # Now draw the percentage text centered under YTD
+        percentage_y = 830
+        pdf.setFont("Inter-Bold", 14)
+        pdf.drawString(centered_x, percentage_y, text)
 
     for j in range (0,3):
         for i in range (0,3):
             image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_3_comp_sectors.loc[i + (j*3),'symbol'][0:4]}.webp").content))
-            pdf.drawImage(image, 143+ (j*328), 782- (i*69), 38,38, mask="auto")
-            pdf.setFont("Inter", 16)
+            pdf.drawImage(image, 162 + (j*330), 756 - (i*75), 26,26, mask="auto")
+            pdf.setFont("Inter", 18)
             pdf.setFillColor(colors.white)
-            pdf.drawString(187+ (j*328), 795- (i*69), top_3_comp_sectors.loc[i + (j*3),"symbol"][0:4])
-            pdf.setFont("Inter-Bold", 16)
-            text = f"{top_3_comp_sectors.loc[i + (j*3),'mcap_change_pct']}%"
-            text_width = pdf.stringWidth(text, 'Inter-Bold', 16)
-            if top_3_comp_sectors.loc[i + (j*3),"mcap_change_pct"] > 0:
-                r, g, b = hex_to_rgb("#ABDDA4")  #green
+            pdf.drawString(154 + (j*330) ,734 - (i*75), top_3_comp_sectors.loc[i + (j*3),"symbol"][0:4])
+
+            center = 260 + (j * 330)
+            y_percentage = 764 - (i * 75)
+            y_idr = 734 - (i * 75)
+
+            # Retrieve values
+            percentage = top_3_comp_sectors.loc[i + (j*3), "mcap_change_pct"]
+            percentage_text = f"+{percentage}%" if percentage > 0 else f"{percentage}%"
+
+            text = f"IDR {format_number_short_1d(top_3_comp_sectors.loc[i + (j*3), 'close'])}"
+
+            # Calculate width for centering
+            percentage_width = pdf.stringWidth(percentage_text, "Inter-Bold", 22)
+            text_width = pdf.stringWidth(text, "Inter", 18)
+
+            percentage_x = center - (percentage_width/2)
+            text_x = center - (text_width/2)
+
+            # Set color for percentage first
+            if percentage > 0:
+                r, g, b = hex_to_rgb("#ABDDA4")  # green
                 pdf.setFillColorRGB(r, g, b)
-                pdf.drawString(244+ (j*328), 805- (i*69), text)
-            if top_3_comp_sectors.loc[i + (j*3),"mcap_change_pct"] < 0:
-                r, g, b = hex_to_rgb("#D53E50")  #Orangey-red
+            elif percentage < 0:
+                r, g, b = hex_to_rgb("#D53E50")  # orange-red
                 pdf.setFillColorRGB(r, g, b)
-                pdf.drawString(244+ (j*328), 805- (i*69), text)
-            if top_3_comp_sectors.loc[i + (j*3),"mcap_change_pct"] == 0:
+            else:
                 pdf.setFillColor(colors.white)
-                pdf.drawString(244+ (j*328), 805- (i*69), "0.00%")
+
+            # Draw percentage
+            pdf.setFont("Inter-Bold", 22)
+            pdf.drawString(percentage_x, y_percentage, percentage_text)
+
+            # Reset color for the secondary text
             pdf.setFillColor(colors.white)
-            pdf.setFont("Inter", 16)
-            pdf.drawString(244+text_width+5+ (j*328), 805- (i*69), "(1 week)")
-            pdf.drawString(244+ (j*328), 782- (i*69), f"IDR {format_number_short_1d(top_3_comp_sectors.loc[i + (j*3),'close'])} | P/E: {top_3_comp_sectors.loc[i + (j*3),'round']}")
+            pdf.setFont("Inter", 18)
+            pdf.drawString(text_x, y_idr, text)
+                    
+
+            # Inside your for loop:
+
+            center = 358 + (j * 330)
+            y_label = 760 - (i * 75)
+            y_number = 740 - (i * 75)
+
+            # Texts to draw
+            label = "P/E"
+            number = f"{top_3_comp_sectors.loc[i + (j*3), 'round']}"
+
+            # Calculate their widths
+            label_width = pdf.stringWidth(label, "Inter", 18)
+            number_width = pdf.stringWidth(number, "Inter-Bold", 16)
+
+            # Center them
+            label_x = center - (label_width/2)
+            number_x = center - (number_width/2)
+
+            # Set color and font
+            pdf.setFillColor(colors.white)
+            pdf.setFont("Inter", 18)
+
+            # Draw
+            pdf.drawString(label_x, y_label, label)
+
+            pdf.setFillColor(colors.white)
+            pdf.setFont("Inter-Bold", 16)
+            pdf.drawString(number_x, y_number, number)
 
     # Top volume Traded
     image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_volume.loc[0,'symbol'][0:4]}.webp").content))
-    pdf.drawImage(image, 158, 429, 63,63, mask="auto")
-    pdf.setFont("Inter", 30)
+    pdf.drawImage(image, 158, 429-110, 63,63, mask="auto")
+    pdf.setFont("Inter", 40)
     pdf.setFillColor(colors.white)
-    pdf.drawString(244, 475, top_volume.loc[0,"symbol"][0:4])
+    pdf.drawString(244, 337, top_volume.loc[0,"symbol"][0:4])
     pdf.setFont("Inter-Semi-Bold", 40)
-    pdf.drawString(244, 428, format_number_short_2d(top_volume.loc[0,"total_volume"]))
+    pdf.drawString(430, 337, format_number_short_2d(top_volume.loc[0,"total_volume"]))
 
     for i in range(0,4):
+        # Center base
+        center = 193 + (i * 105)  # 193 = 168 + 25 (half logo width)
+
+        # Draw logo first, centered
         image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_volume.loc[i+1,'symbol'][0:4]}.webp").content))
-        pdf.drawImage(image, 173, 348-(63*i), 38,38, mask="auto")
+        pdf.drawImage(image, center - 25, 240, 50, 50, mask='auto')
+
+        # Draw symbol, centered
+        symbol = top_volume.loc[i+1,"symbol"][0:4]
+        symbol_width = pdf.stringWidth(symbol, "Inter", 26)
+        symbol_x = center - (symbol_width/2)
+        symbol_y = 205
+
         pdf.setFont("Inter", 26)
         pdf.setFillColor(colors.white)
-        pdf.drawString(244, 357-(63*i), top_volume.loc[i+1,"symbol"][0:4])
+        pdf.drawString(symbol_x, symbol_y, symbol)
+
+        # Now draw number, centered
+        number = format_number_short_2d(top_volume.loc[i+1,"total_volume"])
+
+        number_width = pdf.stringWidth(number, "Inter-Semi-Bold", 26)
+        number_x = center - (number_width/2)
+        number_y = 170
+
         pdf.setFont("Inter-Semi-Bold", 26)
-        text = format_number_short_2d(top_volume.loc[i+1,"total_volume"])
-        text_width = pdf.stringWidth(text, "Inter-Semi-Bold", 26)
-        pdf.drawString(1200-text_width-660, 357-(63*i), text)
+        pdf.drawString(number_x, number_y, number)
 
     # Top value Traded
     image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_value.loc[0,'symbol'][0:4]}.webp").content))
-    pdf.drawImage(image, 661, 429, 63,63, mask="auto")
-    pdf.setFont("Inter", 30)
+    pdf.drawImage(image, 658, 429-110, 63,63, mask="auto")
+    pdf.setFont("Inter", 40)
     pdf.setFillColor(colors.white)
-    pdf.drawString(747, 475, top_value.loc[0,'symbol'][0:4])
+    pdf.drawString(744, 337, top_value.loc[0,"symbol"][0:4])
     pdf.setFont("Inter-Semi-Bold", 40)
-    pdf.drawString(747, 428, f"IDR {format_number_short_2d(top_value.loc[0,'total_value'])}")
+    pdf.drawString(930, 337, format_number_short_2d(top_value.loc[0,"total_value"]))
 
     for i in range(0,4):
+        # Center base
+        center = 668 + (i * 105) + 25  # 668 + (i*105) is the left corner, 25 is half of logo width (50/2)
+
+        # Draw logo first, centered
         image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_value.loc[i+1,'symbol'][0:4]}.webp").content))
-        pdf.drawImage(image, 676, 348-(63*i), 38,38, mask="auto")
+        pdf.drawImage(image, center - 25, 240, 50, 50, mask='auto')
+
+        # Draw symbol, centered
+        symbol = top_value.loc[i+1,"symbol"][0:4]
+        symbol_width = pdf.stringWidth(symbol, "Inter", 26)
+        symbol_x = center - (symbol_width/2)
+        symbol_y = 205
+
         pdf.setFont("Inter", 26)
         pdf.setFillColor(colors.white)
-        pdf.drawString(747, 357-(63*i), top_value.loc[i+1,"symbol"][0:4])
+        pdf.drawString(symbol_x, symbol_y, symbol)
+
+        # Now draw number, centered
+        number = format_number_short_2d(top_value.loc[i+1,"total_value"])
+
+        number_width = pdf.stringWidth(number, "Inter-Semi-Bold", 26)
+        number_x = center - (number_width/2)
+        number_y = 170
+
         pdf.setFont("Inter-Semi-Bold", 26)
-        text = f"IDR {format_number_short_2d(top_value.loc[i+1,'total_value'])}"
-        text_width = pdf.stringWidth(text, "Inter-Semi-Bold", 26)
-        pdf.drawString(1200-text_width-160, 357-(63*i), text)
+        pdf.drawString(number_x, number_y, number)
 
     # Page 3
     pdf.showPage()
@@ -1610,7 +1758,7 @@ def main():
         img.save(f"{output_dir}/{name}_page_{i+1}.png", "PNG")
 
     # Send Email
-    send_email(output_dir)
+    # send_email(output_dir)
 
 
 if __name__ == "__main__":
