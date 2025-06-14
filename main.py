@@ -1758,7 +1758,7 @@ def main():
         img.save(f"{output_dir}/{name}_page_{i+1}.png", "PNG")
 
     # Send Email
-    # send_email(output_dir)
+    send_email(output_dir)
 
 
 if __name__ == "__main__":
