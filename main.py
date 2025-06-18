@@ -692,8 +692,13 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
 
             # Texts to draw
             label = "P/E"
-            number = f"{top_3_comp_sectors.loc[i + (j*3), 'round']}"
-
+            if top_3_comp_sectors.loc[i + (j*3), 'round'] > 100:
+                number = "> 100"
+            elif top_3_comp_sectors.loc[i + (j*3), 'round'] < 0:
+                number = "< 0"
+            else:
+                number = f"{top_3_comp_sectors.loc[i + (j*3), 'round']}"
+            
             # Calculate their widths
             label_width = pdf.stringWidth(label, "Inter", 18)
             number_width = pdf.stringWidth(number, "Inter-Bold", 16)
@@ -1670,7 +1675,7 @@ def main():
         ) AS ranked
         WHERE rn <= 3
         ORDER BY sub_sector, mcap_change_pct DESC)
-        select daily_change.*, round(idmd.pe_ttm::numeric,2), isr.total_market_cap from daily_change
+        select daily_change.*, round(idmd.pe_ttm::numeric,0), isr.total_market_cap from daily_change
         left join idx_calc_metrics_daily idmd on daily_change.symbol = idmd.symbol
         left join idx_sector_reports isr on daily_change.sub_sector = isr.sub_sector;
         """, cur)
@@ -1758,7 +1763,7 @@ def main():
         img.save(f"{output_dir}/{name}_page_{i+1}.png", "PNG")
 
     # Send Email
-    send_email(output_dir)
+    # send_email(output_dir)
 
 
 if __name__ == "__main__":
