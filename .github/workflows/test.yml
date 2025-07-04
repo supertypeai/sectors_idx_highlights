@@ -22,7 +22,7 @@ jobs:
 
         rsync -av --delete json_output/ github_action_tutorial/
 
-        cd repo-b
+        cd github_action_tutorial
         git add .
         if git diff --cached --quiet; then
           echo "No changes to commit."
