@@ -1,0 +1,32 @@
+name: Sync Folder to Repo B
+
+on:
+  push:
+    paths:
+      - 'json_output/**'  # Replace with the folder path you want to track
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo A
+      uses: actions/checkout@v4
+
+    - name: Copy folder to Repo B
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+
+        git clone https://x-access-token:${{ secrets.TOKEN_GITHUB }}@https://github.com/geraldbryan/github_action_tutorial
+
+        rsync -av --delete your-folder/ github_action_tutorial/
+
+        cd repo-b
+        git add .
+        if git diff --cached --quiet; then
+          echo "No changes to commit."
+        else
+          git commit -m "Sync from Repo A"
+          git push
+        fi
