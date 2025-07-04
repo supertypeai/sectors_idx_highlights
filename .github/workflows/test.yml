@@ -18,7 +18,7 @@ jobs:
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
 
-        git clone https://x-access-token:${{ secrets.TOKEN_GITHUB }}@https://github.com/geraldbryan/github_action_tutorial
+        git clone https://x-access-token:${{ secrets.TOKEN_GITHUB }}@github.com/geraldbryan/github_action_tutorial
 
         rsync -av --delete your-folder/ github_action_tutorial/
 
