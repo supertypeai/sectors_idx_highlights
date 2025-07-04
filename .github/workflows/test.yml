@@ -20,7 +20,7 @@ jobs:
 
         git clone https://x-access-token:${{ secrets.TOKEN_GITHUB }}@github.com/geraldbryan/github_action_tutorial
 
-        rsync -av --delete your-folder/ github_action_tutorial/
+        rsync -av --delete json_output/ github_action_tutorial/
 
         cd repo-b
         git add .
