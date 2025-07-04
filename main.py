@@ -1,5 +1,8 @@
 import pandas as pd
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta,date
+import pandas as pd
+import json
+from decimal import Decimal
 
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
@@ -19,7 +22,6 @@ from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from io import BytesIO
 import requests
-
 
 from pdf2image import convert_from_path
 from sendgrid import SendGridAPIClient
@@ -381,8 +383,10 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
 
     # Cover
     num_week = round(datetime.today().day/7)
-    if num_week <= 4:
+    if num_week <= 4 and num_week>0:
         pdf.drawImage(f'asset/page/cover-{num_week}.png', 0, 0, width, height)
+    if num_week == 0:
+        pdf.drawImage('asset/page/cover-1.png', 0, 0, width, height)
     else:
         pdf.drawImage('asset/page/cover-1.png', 0, 0, width, height)
     pdf.setFillColor(colors.white)
@@ -1669,7 +1673,7 @@ def main():
         WHERE sub_sector IN (
             SELECT sub_sector 
             FROM idx_sector_reports
-            ORDER BY total_market_cap DESC
+            order by total_market_cap desc
             LIMIT 3
         )
         ) AS ranked
@@ -1739,7 +1743,7 @@ def main():
     stock_split = fetch_query("""
         select symbol, date, split_ratio from idx_stock_split
         where date >= DATE_TRUNC('week', CURRENT_DATE)
-        AND date < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '3 week'
+        AND date < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '2 week'
         """, cur)
     
     ## Corporate action compilation
@@ -1761,6 +1765,81 @@ def main():
     ## Save each page as a PNG in the same directory
     for i, img in enumerate(images):
         img.save(f"{output_dir}/{name}_page_{i+1}.png", "PNG")
+
+    #json
+    def df_to_serializable(df):
+        """
+        Converts datetime columns to string and Decimal columns to float for JSON serialization.
+        """
+        df_copy = df.copy()
+        for col in df_copy.columns:
+            if pd.api.types.is_datetime64_any_dtype(df_copy[col]):
+                df_copy[col] = df_copy[col].astype(str)
+            elif df_copy[col].apply(lambda x: isinstance(x, Decimal)).any():
+                df_copy[col] = df_copy[col].astype(float)
+            elif df_copy[col].apply(lambda x: isinstance(x, date)).any():
+                df_copy[col] = df_copy[col].astype(str)
+        return df_copy.to_dict(orient="records")
+
+    # Custom JSON encoder for nested Decimal, Timestamp, and date
+    class CustomJSONEncoder(json.JSONEncoder):
+        def default(self, obj):
+            if isinstance(obj, Decimal):
+                return float(obj)
+            if isinstance(obj, (pd.Timestamp, datetime)):
+                return obj.isoformat()
+            if isinstance(obj, date):
+                return obj.isoformat()
+            return super().default(obj)
+
+    # Prepare your compiled dictionary
+    compiled_data = {
+        "market_cap_history": hist_mcap.replace(np.nan,'null').to_dict(orient="records"),
+        "weekly_market_cap_changes": df_to_serializable(mcap_changes)[0] if not mcap_changes.empty else {},
+        "top_gainers_losers": df_to_serializable(top_gainers_losers),
+        "indices_changes": df_to_serializable(indices_changes),
+        "sectors_changes": df_to_serializable(sectors_changes),
+        "top_3_companies_per_sector": df_to_serializable(top_3_comp_sectors),
+        "top_volume": df_to_serializable(top_volume),
+        "top_value": df_to_serializable(top_value),
+        "ipo_this_week": df_to_serializable(df_ipo),
+        "upcoming_dividends": df_to_serializable(df_div),
+        "stock_split_upcoming": df_to_serializable(stock_split),
+        "corporate_action_compilation": (
+            ca_comp if isinstance(ca_comp, (list, dict)) else df_to_serializable(ca_comp)
+        )
+    }
+
+    output_folder = "json_output"
+
+    # Scan existing files to find the latest number
+    existing_files = [f for f in os.listdir(output_folder) if f.endswith(".json")]
+
+    numbers = []
+    for fname in existing_files:
+        try:
+            num = int(fname.split("_")[0])
+            numbers.append(num)
+        except (ValueError, IndexError):
+            continue  # Skip files that don't follow the pattern
+
+    # Determine next number
+    next_number = max(numbers) + 1 if numbers else 27
+
+    # Today's date
+    today = datetime.today()
+    today_str = (today - timedelta(days=today.weekday())).date().isoformat()
+
+    # Build filename
+    output_filename = f"{next_number}_{today_str}.json"
+
+    output_path = os.path.join(output_folder, output_filename)
+
+    # Save JSON
+    with open(output_path, "w") as f:
+        json.dump(compiled_data, f, indent=4, cls=CustomJSONEncoder)
+
+    print("✅ JSON created")
 
     # Send Email
     send_email(output_dir)
