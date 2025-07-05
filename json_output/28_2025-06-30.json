@@ -1,0 +1,383 @@
+{
+    "market_cap_history": [
+        {
+            "date": "2025-06-30T00:00:00",
+            "market_cap": 1.2089439404781312e+16,
+            "pct_change": "null",
+            "market_cap_ffill": 1.2089439404781312e+16
+        },
+        {
+            "date": "2025-07-01T00:00:00",
+            "market_cap": 1.2083103475156736e+16,
+            "pct_change": -0.05,
+            "market_cap_ffill": 1.2083103475156736e+16
+        },
+        {
+            "date": "2025-07-02T00:00:00",
+            "market_cap": 1.2015936887768832e+16,
+            "pct_change": -0.56,
+            "market_cap_ffill": 1.2015936887768832e+16
+        },
+        {
+            "date": "2025-07-03T00:00:00",
+            "market_cap": 1.2004764059729348e+16,
+            "pct_change": -0.09,
+            "market_cap_ffill": 1.2004764059729348e+16
+        },
+        {
+            "date": "2025-07-04T00:00:00",
+            "market_cap": 1.1981314435841164e+16,
+            "pct_change": -0.2,
+            "market_cap_ffill": 1.1981314435841164e+16
+        }
+    ],
+    "weekly_market_cap_changes": {
+        "mcap_start": 1.2089439404781312e+16,
+        "mcap_end": 1.1981314435841164e+16,
+        "mcap_difference": -108124968940148.0,
+        "mcap_percentage_change": -0.89
+    },
+    "top_gainers_losers": [
+        {
+            "symbol": "FASW.JK",
+            "mcap_start": 13854009458688.0,
+            "mcap_end": 16745670639616.0,
+            "mcap_change": 2891661180928.0,
+            "mcap_change_pct": 20.87
+        },
+        {
+            "symbol": "MAPA.JK",
+            "mcap_start": 18670120075264.0,
+            "mcap_end": 20807921172480.0,
+            "mcap_change": 2137801097216.0,
+            "mcap_change_pct": 11.45
+        },
+        {
+            "symbol": "ADES.JK",
+            "mcap_start": 6385635426304.0,
+            "mcap_end": 7078764085248.0,
+            "mcap_change": 693128658944.0,
+            "mcap_change_pct": 10.85
+        },
+        {
+            "symbol": "TOBA.JK",
+            "mcap_start": 6151762608128.0,
+            "mcap_end": 6771067846656.0,
+            "mcap_change": 619305238528.0,
+            "mcap_change_pct": 10.07
+        },
+        {
+            "symbol": "SHIP.JK",
+            "mcap_start": 7914589257728.0,
+            "mcap_end": 8594536792064.0,
+            "mcap_change": 679947534336.0,
+            "mcap_change_pct": 8.59
+        },
+        {
+            "symbol": "NOBU.JK",
+            "mcap_start": 6094928740352.0,
+            "mcap_end": 4487063797760.0,
+            "mcap_change": -1607864942592.0,
+            "mcap_change_pct": -26.38
+        },
+        {
+            "symbol": "PACK.JK",
+            "mcap_start": 7156352417792.0,
+            "mcap_end": 5654796304384.0,
+            "mcap_change": -1501556113408.0,
+            "mcap_change_pct": -20.98
+        },
+        {
+            "symbol": "BTPN.JK",
+            "mcap_start": 26827668062208.0,
+            "mcap_end": 22995143753728.0,
+            "mcap_change": -3832524308480.0,
+            "mcap_change_pct": -14.29
+        },
+        {
+            "symbol": "TBIG.JK",
+            "mcap_start": 51333012914176.0,
+            "mcap_end": 44637402169344.0,
+            "mcap_change": -6695610744832.0,
+            "mcap_change_pct": -13.04
+        },
+        {
+            "symbol": "BMAS.JK",
+            "mcap_start": 11042647179264.0,
+            "mcap_end": 9775457763328.0,
+            "mcap_change": -1267189415936.0,
+            "mcap_change_pct": -11.48
+        }
+    ],
+    "indices_changes": [
+        {
+            "index_code": "IDXBUMN20",
+            "start_price": 352.21,
+            "end_price": 343.08,
+            "price_change": -9.13,
+            "price_change_pct": -2.59
+        },
+        {
+            "index_code": "LQ45",
+            "start_price": 772.65,
+            "end_price": 763.51,
+            "price_change": -9.14,
+            "price_change_pct": -1.18
+        },
+        {
+            "index_code": "JII70",
+            "start_price": 174.4,
+            "end_price": 173.61,
+            "price_change": -0.79,
+            "price_change_pct": -0.45
+        }
+    ],
+    "sectors_changes": [
+        {
+            "sector": "financials",
+            "sub_sector": "Banks",
+            "total_market_cap": 2873728818970624.0,
+            "mcap_change_1w": -2.62,
+            "mcap_change_1y": -16.17,
+            "mcap_change_ytd": -8.87
+        },
+        {
+            "sector": "basic_materials",
+            "sub_sector": "Basic Materials",
+            "total_market_cap": 2230970266649600.0,
+            "mcap_change_1w": 1.23,
+            "mcap_change_1y": -6.36,
+            "mcap_change_ytd": 17.31
+        },
+        {
+            "sector": "energy",
+            "sub_sector": "Oil, Gas & Coal",
+            "total_market_cap": 1774373616173056.0,
+            "mcap_change_1w": 0.45,
+            "mcap_change_1y": 21.24,
+            "mcap_change_ytd": 3.48
+        }
+    ],
+    "top_3_companies_per_sector": [
+        {
+            "symbol": "BBHI.JK",
+            "close": 850,
+            "mcap_change_pct": 8.28,
+            "sub_sector": "Banks",
+            "rn": 1,
+            "round": 40.0,
+            "total_market_cap": 2873728818970624.0
+        },
+        {
+            "symbol": "BBSI.JK",
+            "close": 4040,
+            "mcap_change_pct": 0.25,
+            "sub_sector": "Banks",
+            "rn": 2,
+            "round": 113.0,
+            "total_market_cap": 2873728818970624.0
+        },
+        {
+            "symbol": "BSWD.JK",
+            "close": 1430,
+            "mcap_change_pct": 0.0,
+            "sub_sector": "Banks",
+            "rn": 3,
+            "round": 63.0,
+            "total_market_cap": 2873728818970624.0
+        },
+        {
+            "symbol": "FASW.JK",
+            "close": 5312,
+            "mcap_change_pct": 20.87,
+            "sub_sector": "Basic Materials",
+            "rn": 1,
+            "round": -14.0,
+            "total_market_cap": 2230970266649600.0
+        },
+        {
+            "symbol": "CTBN.JK",
+            "close": 8500,
+            "mcap_change_pct": 5.59,
+            "sub_sector": "Basic Materials",
+            "rn": 2,
+            "round": 11.0,
+            "total_market_cap": 2230970266649600.0
+        },
+        {
+            "symbol": "ARCI.JK",
+            "close": 590,
+            "mcap_change_pct": 5.36,
+            "sub_sector": "Basic Materials",
+            "rn": 3,
+            "round": 36.0,
+            "total_market_cap": 2230970266649600.0
+        },
+        {
+            "symbol": "TOBA.JK",
+            "close": 820,
+            "mcap_change_pct": 10.07,
+            "sub_sector": "Oil, Gas & Coal",
+            "rn": 1,
+            "round": -9.0,
+            "total_market_cap": 1774373616173056.0
+        },
+        {
+            "symbol": "SHIP.JK",
+            "close": 3160,
+            "mcap_change_pct": 8.59,
+            "sub_sector": "Oil, Gas & Coal",
+            "rn": 2,
+            "round": 39.0,
+            "total_market_cap": 1774373616173056.0
+        },
+        {
+            "symbol": "DSSA.JK",
+            "close": 55600,
+            "mcap_change_pct": 3.78,
+            "sub_sector": "Oil, Gas & Coal",
+            "rn": 3,
+            "round": 74.0,
+            "total_market_cap": 1774373616173056.0
+        }
+    ],
+    "top_volume": [
+        {
+            "symbol": "GOTO.JK",
+            "total_volume": 14039602300.0
+        },
+        {
+            "symbol": "BUMI.JK",
+            "total_volume": 5998965300.0
+        },
+        {
+            "symbol": "BRMS.JK",
+            "total_volume": 3331894000.0
+        },
+        {
+            "symbol": "MBMA.JK",
+            "total_volume": 2480301300.0
+        },
+        {
+            "symbol": "DEWA.JK",
+            "total_volume": 1518833100.0
+        }
+    ],
+    "top_value": [
+        {
+            "symbol": "BMRI.JK",
+            "total_value": 4340520386000.0
+        },
+        {
+            "symbol": "BBCA.JK",
+            "total_value": 3730178432500.0
+        },
+        {
+            "symbol": "BBRI.JK",
+            "total_value": 3387994836000.0
+        },
+        {
+            "symbol": "ANTM.JK",
+            "total_value": 2564034994000.0
+        },
+        {
+            "symbol": "BRPT.JK",
+            "total_value": 1430685434000.0
+        }
+    ],
+    "ipo_this_week": [
+        {
+            "symbol": "COIN.JK",
+            "company_name": "PT Indokripto Koin Semesta Tbk",
+            "offering_end_date": "2025-07-07",
+            "listing_date": "2025-07-09",
+            "offering_price": 100,
+            "shares_offered": 2205882400
+        },
+        {
+            "symbol": "PMUI.JK",
+            "company_name": "PT Prima Multi Usaha Indonesia Tbk",
+            "offering_end_date": "2025-07-08",
+            "listing_date": "2025-07-10",
+            "offering_price": 180,
+            "shares_offered": 1160000000
+        },
+        {
+            "symbol": "CDIA.JK",
+            "company_name": "PT Chandra Daya Investasi Tbk",
+            "offering_end_date": "2025-07-07",
+            "listing_date": "2025-07-09",
+            "offering_price": 190,
+            "shares_offered": 12482937500
+        },
+        {
+            "symbol": "MERI.JK",
+            "company_name": "PT Merry Riana Edukasi Tbk",
+            "offering_end_date": "2025-07-08",
+            "listing_date": "2025-07-10",
+            "offering_price": 128,
+            "shares_offered": 235132500
+        },
+        {
+            "symbol": "CHEK.JK",
+            "company_name": "PT Diastika Biotekindo Tbk",
+            "offering_end_date": "2025-07-08",
+            "listing_date": "2025-07-10",
+            "offering_price": 128,
+            "shares_offered": 815000000
+        },
+        {
+            "symbol": "BLOG.JK",
+            "company_name": "PT Trimitra Trans Persada Tbk",
+            "offering_end_date": "2025-07-08",
+            "listing_date": "2025-07-10",
+            "offering_price": 250,
+            "shares_offered": 563247900
+        }
+    ],
+    "upcoming_dividends": [],
+    "stock_split_upcoming": [
+        {
+            "symbol": "CUAN.JK",
+            "date": "2025-07-10",
+            "split_ratio": 10.0
+        }
+    ],
+    "corporate_action_compilation": [
+        {
+            "date": "2025-06-30",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-07-01",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-07-02",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-07-03",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-07-04",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        }
+    ]
+}
