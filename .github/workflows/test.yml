@@ -11,22 +11,17 @@ jobs:
     steps:
       - name: Checkout repo_a
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
+    
       - name: Setup Git
         run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-
-      - name: Clone repo_b
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+      
+      - name: Shallow clone repo_b
         run: |
-          git clone https://${{ secrets.REPO_B_PUSH_TOKEN }}@github.com/geraldbryan/github_action_tutorial.git
+          git clone --depth 1 https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/geraldbryan/github_action_tutorial.git
+          cp -r json_output/* repo_b/json_output/
           cd repo_b
-          mkdir -p json_output
-          rm -rf json_output/*
-          cp -r ../json_output/* json_output/
-          
           git add json_output
           if git diff --cached --quiet; then
             echo "No changes to commit."
@@ -34,5 +29,3 @@ jobs:
             git commit -m "Update json_output from repo_a"
             git push
           fi
-    env:
-      GITHUB_TOKEN: ${{ secrets.REPO_B_PUSH_TOKEN }}
