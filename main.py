@@ -141,6 +141,31 @@ def ffill_data(df,column):
 
     return df
 
+def draw_shrinking_text(pdf, text, max_width, x, y, font_name='Inter-Bold', initial_font_size=30, min_font_size=5, color=colors.white):
+    """
+    Draws text at (x, y) with shrinking font size if max_width is exceeded.
+
+    Parameters:
+    - pdf: ReportLab canvas object
+    - text: The string to draw
+    - max_width: Maximum allowed width for the text
+    - x, y: Coordinates to draw the text
+    - font_name: Font to use (default: 'Inter-Bold')
+    - initial_font_size: Starting font size (default: 30)
+    - min_font_size: Minimum font size allowed (default: 5)
+    - color: Text color (default: white)
+    """
+    font_size = initial_font_size
+    pdf.setFont(font_name, font_size)
+    text_width = pdf.stringWidth(text, font_name, font_size)
+
+    while text_width > max_width and font_size > min_font_size:
+        font_size -= 1
+        pdf.setFont(font_name, font_size)
+        text_width = pdf.stringWidth(text, font_name, font_size)
+
+    pdf.setFillColor(color)
+    pdf.drawString(x, y, text)
 
 def week_date():
     today = datetime.today()
@@ -530,7 +555,8 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
         pdf.drawImage(f'asset/sectors/{sectors_changes.loc[i,"sector"]}.png', 139 + (i*330), 900, 45,45, mask="auto")
         pdf.setFillColor(colors.white)
         pdf.setFont("Inter-Bold", 24)
-        pdf.drawString(203+ (i*330), 925, sectors_changes.loc[i,'sub_sector'])
+        draw_shrinking_text(pdf, sectors_changes.loc[i,'sub_sector'], 206, 203 + (i*330), 925, font_name='Inter-Bold', initial_font_size=24, min_font_size=12, color=colors.white)
+        # pdf.drawString(203+ (i*330), 925, sectors_changes.loc[i,'sub_sector'])
         pdf.setFont("Inter", 20)
         pdf.drawString(203+ (i*330), 900, f"IDR {format_number_short_2d(sectors_changes.loc[i,'total_market_cap'])}")
 
@@ -1619,7 +1645,7 @@ def main():
         ROUND((mcap_summary::jsonb->'mcap_change'->>'1y')::numeric * 100, 2) AS mcap_change_1y,
         ROUND((mcap_summary::jsonb->'mcap_change'->>'ytd')::numeric * 100, 2) AS mcap_change_ytd
         FROM idx_sector_reports
-        order by total_market_cap desc
+        order by abs((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric * 100) desc
         limit 3;
         """, cur)
 
@@ -1660,7 +1686,7 @@ def main():
             )
         ) AS end_data
         ON start_data.symbol = end_data.symbol
-        WHERE start_data.mcap_start >= 5000000000000
+        WHERE start_data.mcap_start >= 1000000000000
         ORDER BY mcap_change_pct DESC
         ) as changes
         left join idx_company_profile icp on changes.symbol = icp.symbol
@@ -1673,19 +1699,28 @@ def main():
         WHERE sub_sector IN (
             SELECT sub_sector 
             FROM idx_sector_reports
-            order by total_market_cap desc
+            ORDER BY abs((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric * 100) desc
             LIMIT 3
         )
         ) AS ranked
         WHERE rn <= 3
-        ORDER BY sub_sector, mcap_change_pct DESC)
-        select daily_change.*, round(idmd.pe_ttm::numeric,0), isr.total_market_cap from daily_change
+        ORDER BY sub_sector, mcap_change_pct DESC),
+        sub_sec_rank as (
+        SELECT 
+        sub_sector,
+        RANK() OVER (
+            ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric * 100) DESC
+        ) AS rank_sub_sec
+        FROM idx_sector_reports
+        LIMIT 3
+        )
+        select daily_change.*, round(idmd.pe_ttm::numeric,2), isr.total_market_cap from daily_change
         left join idx_calc_metrics_daily idmd on daily_change.symbol = idmd.symbol
-        left join idx_sector_reports isr on daily_change.sub_sector = isr.sub_sector;
+        left join idx_sector_reports isr on daily_change.sub_sector = isr.sub_sector
+        left join sub_sec_rank ssr on daily_change.sub_sector = ssr.sub_sector
+        order by ssr.rank_sub_sec, daily_change.rn;
         """, cur)
-
-    top_3_comp_sectors = top_3_comp_sectors.sort_values(["total_market_cap","mcap_change_pct"], ascending=False).reset_index(drop=True)
-
+    
     ## Top Volume
     top_volume = fetch_query("""
         SELECT symbol, sum(volume) as total_volume
