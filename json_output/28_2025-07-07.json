@@ -1,0 +1,399 @@
+{
+    "market_cap_history": [
+        {
+            "date": "2025-07-07T00:00:00",
+            "market_cap": 1.2012474038200064e+16,
+            "pct_change": "null",
+            "market_cap_ffill": 1.2012474038200064e+16
+        },
+        {
+            "date": "2025-07-08T00:00:00",
+            "market_cap": 1.2075270092877952e+16,
+            "pct_change": 0.52,
+            "market_cap_ffill": 1.2075270092877952e+16
+        },
+        {
+            "date": "2025-07-09T00:00:00",
+            "market_cap": 1.219735016728102e+16,
+            "pct_change": 1.01,
+            "market_cap_ffill": 1.219735016728102e+16
+        },
+        {
+            "date": "2025-07-10T00:00:00",
+            "market_cap": 1.2277947504699136e+16,
+            "pct_change": 0.66,
+            "market_cap_ffill": 1.2277947504699136e+16
+        },
+        {
+            "date": "2025-07-11T00:00:00",
+            "market_cap": 1.2308740770541312e+16,
+            "pct_change": 0.25,
+            "market_cap_ffill": 1.2308740770541312e+16
+        }
+    ],
+    "weekly_market_cap_changes": {
+        "mcap_start": 1.2012474038200064e+16,
+        "mcap_end": 1.2308740770541312e+16,
+        "mcap_difference": 296266732341248.0,
+        "mcap_percentage_change": 2.47
+    },
+    "top_gainers_losers": [
+        {
+            "symbol": "BBHI.JK",
+            "mcap_start": 18470754320384.0,
+            "mcap_end": 24555238195200.0,
+            "mcap_change": 6084483874816.0,
+            "mcap_change_pct": 32.94
+        },
+        {
+            "symbol": "PACK.JK",
+            "mcap_start": 5750640345088.0,
+            "mcap_end": 6868820295680.0,
+            "mcap_change": 1118179950592.0,
+            "mcap_change_pct": 19.44
+        },
+        {
+            "symbol": "PANI.JK",
+            "mcap_start": 192895134990336.0,
+            "mcap_end": 229616971153408.0,
+            "mcap_change": 36721836163072.0,
+            "mcap_change_pct": 19.04
+        },
+        {
+            "symbol": "TAPG.JK",
+            "mcap_start": 19356188672000.0,
+            "mcap_end": 22731114414080.0,
+            "mcap_change": 3374925742080.0,
+            "mcap_change_pct": 17.44
+        },
+        {
+            "symbol": "PTRO.JK",
+            "mcap_start": 27433919053824.0,
+            "mcap_end": 32174338211840.0,
+            "mcap_change": 4740419158016.0,
+            "mcap_change_pct": 17.28
+        },
+        {
+            "symbol": "MFIN.JK",
+            "mcap_start": 15555860889600.0,
+            "mcap_end": 8181230600192.0,
+            "mcap_change": -7374630289408.0,
+            "mcap_change_pct": -47.41
+        },
+        {
+            "symbol": "MAPA.JK",
+            "mcap_start": 22090600153088.0,
+            "mcap_end": 19097681133568.0,
+            "mcap_change": -2992919019520.0,
+            "mcap_change_pct": -13.55
+        },
+        {
+            "symbol": "BALI.JK",
+            "mcap_start": 6315016978432.0,
+            "mcap_end": 5862539132928.0,
+            "mcap_change": -452477845504.0,
+            "mcap_change_pct": -7.17
+        },
+        {
+            "symbol": "YUPI.JK",
+            "mcap_start": 17345314553856.0,
+            "mcap_end": 16405420310528.0,
+            "mcap_change": -939894243328.0,
+            "mcap_change_pct": -5.42
+        },
+        {
+            "symbol": "MORA.JK",
+            "mcap_start": 10073493471232.0,
+            "mcap_end": 9553266606080.0,
+            "mcap_change": -520226865152.0,
+            "mcap_change_pct": -5.16
+        }
+    ],
+    "indices_changes": [
+        {
+            "index_code": "IDXBUMN20",
+            "start_price": 343.93,
+            "end_price": 357.09,
+            "price_change": 13.16,
+            "price_change_pct": 3.83
+        },
+        {
+            "index_code": "LQ45",
+            "start_price": 767.51,
+            "end_price": 786.1,
+            "price_change": 18.59,
+            "price_change_pct": 2.42
+        },
+        {
+            "index_code": "JII70",
+            "start_price": 174.31,
+            "end_price": 178.91,
+            "price_change": 4.6,
+            "price_change_pct": 2.64
+        }
+    ],
+    "sectors_changes": [
+        {
+            "sector": "financials",
+            "sub_sector": "Financing Service",
+            "total_market_cap": 40830243586048.0,
+            "mcap_change_1w": -17.69,
+            "mcap_change_1y": -9.2,
+            "mcap_change_ytd": -21.58
+        },
+        {
+            "sector": "infrastructures",
+            "sub_sector": "Utilities",
+            "total_market_cap": 945522993401856.0,
+            "mcap_change_1w": 12.8,
+            "mcap_change_1y": -23.01,
+            "mcap_change_ytd": -27.03
+        },
+        {
+            "sector": "technology",
+            "sub_sector": "Technology Hardware & Equipment",
+            "total_market_cap": 15832329494528.0,
+            "mcap_change_1w": 6.71,
+            "mcap_change_1y": -7.34,
+            "mcap_change_ytd": -10.37
+        }
+    ],
+    "top_3_companies_per_sector": [
+        {
+            "symbol": "TIFA.JK",
+            "close": 730,
+            "mcap_change_pct": 8.96,
+            "sub_sector": "Financing Service",
+            "rn": 1,
+            "round": 47.39,
+            "total_market_cap": 40830243586048.0
+        },
+        {
+            "symbol": "CFIN.JK",
+            "close": 316,
+            "mcap_change_pct": 3.27,
+            "sub_sector": "Financing Service",
+            "rn": 2,
+            "round": 7.69,
+            "total_market_cap": 40830243586048.0
+        },
+        {
+            "symbol": "BFIN.JK",
+            "close": 830,
+            "mcap_change_pct": 3.11,
+            "sub_sector": "Financing Service",
+            "rn": 3,
+            "round": 7.98,
+            "total_market_cap": 40830243586048.0
+        },
+        {
+            "symbol": "KEEN.JK",
+            "close": 830,
+            "mcap_change_pct": 7.1,
+            "sub_sector": "Utilities",
+            "rn": 1,
+            "round": 27.41,
+            "total_market_cap": 945522993401856.0
+        },
+        {
+            "symbol": "BREN.JK",
+            "close": 6100,
+            "mcap_change_pct": 4.72,
+            "sub_sector": "Utilities",
+            "rn": 2,
+            "round": 397.32,
+            "total_market_cap": 945522993401856.0
+        },
+        {
+            "symbol": "PGEO.JK",
+            "close": 1490,
+            "mcap_change_pct": 4.2,
+            "sub_sector": "Utilities",
+            "rn": 3,
+            "round": 26.66,
+            "total_market_cap": 945522993401856.0
+        },
+        {
+            "symbol": "MSTI.JK",
+            "close": 1415,
+            "mcap_change_pct": 9.27,
+            "sub_sector": "Technology Hardware & Equipment",
+            "rn": 1,
+            "round": 8.22,
+            "total_market_cap": 15832329494528.0
+        },
+        {
+            "symbol": "CHIP.JK",
+            "close": 1315,
+            "mcap_change_pct": 2.33,
+            "sub_sector": "Technology Hardware & Equipment",
+            "rn": 2,
+            "round": 130.54,
+            "total_market_cap": 15832329494528.0
+        },
+        {
+            "symbol": "PTSN.JK",
+            "close": 210,
+            "mcap_change_pct": 1.94,
+            "sub_sector": "Technology Hardware & Equipment",
+            "rn": 3,
+            "round": 10.13,
+            "total_market_cap": 15832329494528.0
+        }
+    ],
+    "top_volume": [
+        {
+            "symbol": "GOTO.JK",
+            "total_volume": 6187155300.0
+        },
+        {
+            "symbol": "BUMI.JK",
+            "total_volume": 2799172300.0
+        },
+        {
+            "symbol": "BRMS.JK",
+            "total_volume": 2123363000.0
+        },
+        {
+            "symbol": "MBMA.JK",
+            "total_volume": 1969472500.0
+        },
+        {
+            "symbol": "BRPT.JK",
+            "total_volume": 1201285400.0
+        }
+    ],
+    "top_value": [
+        {
+            "symbol": "BBCA.JK",
+            "total_value": 5200403715000.0
+        },
+        {
+            "symbol": "BMRI.JK",
+            "total_value": 3586246858000.0
+        },
+        {
+            "symbol": "BBRI.JK",
+            "total_value": 3170360636000.0
+        },
+        {
+            "symbol": "BRPT.JK",
+            "total_value": 2068628859500.0
+        },
+        {
+            "symbol": "CUAN.JK",
+            "total_value": 1903079295000.0
+        }
+    ],
+    "ipo_this_week": [
+        {
+            "symbol": "COIN.JK",
+            "company_name": "PT Indokripto Koin Semesta Tbk",
+            "offering_end_date": "2025-07-07",
+            "listing_date": "2025-07-09",
+            "offering_price": 100,
+            "shares_offered": 2205882400
+        },
+        {
+            "symbol": "PMUI.JK",
+            "company_name": "PT Prima Multi Usaha Indonesia Tbk",
+            "offering_end_date": "2025-07-08",
+            "listing_date": "2025-07-10",
+            "offering_price": 180,
+            "shares_offered": 1160000000
+        },
+        {
+            "symbol": "CDIA.JK",
+            "company_name": "PT Chandra Daya Investasi Tbk",
+            "offering_end_date": "2025-07-07",
+            "listing_date": "2025-07-09",
+            "offering_price": 190,
+            "shares_offered": 12482937500
+        },
+        {
+            "symbol": "MERI.JK",
+            "company_name": "PT Merry Riana Edukasi Tbk",
+            "offering_end_date": "2025-07-08",
+            "listing_date": "2025-07-10",
+            "offering_price": 128,
+            "shares_offered": 235132500
+        },
+        {
+            "symbol": "CHEK.JK",
+            "company_name": "PT Diastika Biotekindo Tbk",
+            "offering_end_date": "2025-07-08",
+            "listing_date": "2025-07-10",
+            "offering_price": 128,
+            "shares_offered": 815000000
+        },
+        {
+            "symbol": "BLOG.JK",
+            "company_name": "PT Trimitra Trans Persada Tbk",
+            "offering_end_date": "2025-07-08",
+            "listing_date": "2025-07-10",
+            "offering_price": 250,
+            "shares_offered": 563247900
+        },
+        {
+            "symbol": "ASPR.JK",
+            "company_name": "PT Asia Pramulia Tbk",
+            "offering_end_date": "2025-07-04",
+            "listing_date": "2025-07-08",
+            "offering_price": 124,
+            "shares_offered": 812000000
+        },
+        {
+            "symbol": "PSAT.JK",
+            "company_name": "PT Pancaran Samudera Transport Tbk",
+            "offering_end_date": "2025-07-04",
+            "listing_date": "2025-07-08",
+            "offering_price": 900,
+            "shares_offered": 222353000
+        }
+    ],
+    "upcoming_dividends": [],
+    "stock_split_upcoming": [
+        {
+            "symbol": "CUAN.JK",
+            "date": "2025-07-15",
+            "split_ratio": 10.0
+        }
+    ],
+    "corporate_action_compilation": [
+        {
+            "date": "2025-07-07",
+            "ipo": 2,
+            "div": 0,
+            "split": 0,
+            "total": 2
+        },
+        {
+            "date": "2025-07-08",
+            "ipo": 4,
+            "div": 0,
+            "split": 0,
+            "total": 4
+        },
+        {
+            "date": "2025-07-09",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-07-10",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-07-11",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        }
+    ]
+}
