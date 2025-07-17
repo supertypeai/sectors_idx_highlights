@@ -1871,13 +1871,13 @@ def main():
     output_path = os.path.join(output_folder, output_filename)
 
     # Save JSON
-    with open(output_path, "w") as f:
-        json.dump(compiled_data, f, indent=4, cls=CustomJSONEncoder)
+    # with open(output_path, "w") as f:
+    #     json.dump(compiled_data, f, indent=4, cls=CustomJSONEncoder)
 
     print("✅ JSON created")
 
-    # Send Email
-    send_email(output_dir)
+    # # Send Email
+    # send_email(output_dir)
 
 if __name__ == "__main__":
     main()
