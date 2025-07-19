@@ -555,7 +555,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
         pdf.drawImage(f'asset/sectors/{sectors_changes.loc[i,"sector"]}.png', 139 + (i*330), 900, 45,45, mask="auto")
         pdf.setFillColor(colors.white)
         pdf.setFont("Inter-Bold", 24)
-        draw_shrinking_text(pdf, sectors_changes.loc[i,'sub_sector'], 206, 203 + (i*330), 925, font_name='Inter-Bold', initial_font_size=24, min_font_size=12, color=colors.white)
+        draw_shrinking_text(pdf, sectors_changes.loc[i,'sub_sector'], 206, 203 + (i*330), 925, font_name='Inter-Bold', initial_font_size=24, min_font_size=8, color=colors.white)
         # pdf.drawString(203+ (i*330), 925, sectors_changes.loc[i,'sub_sector'])
         pdf.setFont("Inter", 20)
         pdf.drawString(203+ (i*330), 900, f"IDR {format_number_short_2d(sectors_changes.loc[i,'total_market_cap'])}")
@@ -1718,9 +1718,9 @@ def main():
         left join idx_calc_metrics_daily idmd on daily_change.symbol = idmd.symbol
         left join idx_sector_reports isr on daily_change.sub_sector = isr.sub_sector
         left join sub_sec_rank ssr on daily_change.sub_sector = ssr.sub_sector
-        order by daily_change.rn,ssr.rank_sub_sec;
+        order by ssr.rank_sub_sec, daily_change.rn;
         """, cur)
-    
+
     ## Top Volume
     top_volume = fetch_query("""
         SELECT symbol, sum(volume) as total_volume
@@ -1871,13 +1871,13 @@ def main():
     output_path = os.path.join(output_folder, output_filename)
 
     # Save JSON
-    with open(output_path, "w") as f:
-        json.dump(compiled_data, f, indent=4, cls=CustomJSONEncoder)
+    # with open(output_path, "w") as f:
+    #     json.dump(compiled_data, f, indent=4, cls=CustomJSONEncoder)
 
-    print("✅ JSON created")
+    # print("✅ JSON created")
 
-    # Send Email
-    send_email(output_dir)
+    # # Send Email
+    # send_email(output_dir)
 
 if __name__ == "__main__":
     main()
