@@ -410,7 +410,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
     num_week = round(datetime.today().day/7)
     if num_week <= 4 and num_week>0:
         pdf.drawImage(f'asset/page/cover-{num_week}.png', 0, 0, width, height)
-    if num_week == 0:
+    elif num_week == 0:
         pdf.drawImage('asset/page/cover-1.png', 0, 0, width, height)
     else:
         pdf.drawImage('asset/page/cover-1.png', 0, 0, width, height)
