@@ -1663,27 +1663,27 @@ def main():
         FROM (
         SELECT
             start_data.symbol,
-            end_data.close,
-            ROUND(100.0 * (end_data.mcap_end - start_data.mcap_start) / NULLIF(start_data.mcap_start, 0), 2) AS mcap_change_pct
+            end_data.close_end as close,
+            ROUND(100.0 * (end_data.close_end - start_data.close_start) / NULLIF(start_data.close_start, 0), 2) AS mcap_change_pct
         FROM (
-            SELECT symbol, market_cap AS mcap_start,date
+            SELECT symbol, close as close_start, market_cap AS mcap_start,date
             FROM idx_daily_data
             WHERE date = (
             SELECT MIN(date)
             FROM idx_daily_data
             WHERE date >= DATE_TRUNC('week', CURRENT_DATE)
-                AND date < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '1 week'
-            )
+                AND date < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '1 week' 
+            ) and symbol not in (select symbol from idx_ipo_details_12m where listing_date > DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 month')
         ) AS start_data
         JOIN (
-            SELECT symbol, market_cap AS mcap_end, close,date
+            SELECT symbol, market_cap AS mcap_end, close as close_end,date
             FROM idx_daily_data
             WHERE date = (
             SELECT MAX(date)
             FROM idx_daily_data
             WHERE date >= DATE_TRUNC('week', CURRENT_DATE)
-                AND date < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '1 week'
-            )
+                AND date < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '1 week' 
+            ) and symbol not in (select symbol from idx_ipo_details_12m where listing_date > DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 month')
         ) AS end_data
         ON start_data.symbol = end_data.symbol
         WHERE start_data.mcap_start >= 1000000000000
@@ -1718,7 +1718,7 @@ def main():
         left join idx_calc_metrics_daily idmd on daily_change.symbol = idmd.symbol
         left join idx_sector_reports isr on daily_change.sub_sector = isr.sub_sector
         left join sub_sec_rank ssr on daily_change.sub_sector = ssr.sub_sector
-        order by ssr.rank_sub_sec, daily_change.rn;
+        order by daily_change.rn,ssr.rank_sub_sec;
         """, cur)
     
     ## Top Volume
@@ -1871,13 +1871,13 @@ def main():
     output_path = os.path.join(output_folder, output_filename)
 
     # Save JSON
-    # with open(output_path, "w") as f:
-    #     json.dump(compiled_data, f, indent=4, cls=CustomJSONEncoder)
+    with open(output_path, "w") as f:
+        json.dump(compiled_data, f, indent=4, cls=CustomJSONEncoder)
 
     print("✅ JSON created")
 
-    # # Send Email
-    # send_email(output_dir)
+    # Send Email
+    send_email(output_dir)
 
 if __name__ == "__main__":
     main()
