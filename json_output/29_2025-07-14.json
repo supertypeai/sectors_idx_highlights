@@ -1,0 +1,334 @@
+{
+    "market_cap_history": [
+        {
+            "date": "2025-07-14T00:00:00",
+            "market_cap": 1.253849771070848e+16,
+            "pct_change": "null",
+            "market_cap_ffill": 1.253849771070848e+16
+        },
+        {
+            "date": "2025-07-15T00:00:00",
+            "market_cap": 1.2620144204363572e+16,
+            "pct_change": 0.65,
+            "market_cap_ffill": 1.2620144204363572e+16
+        },
+        {
+            "date": "2025-07-16T00:00:00",
+            "market_cap": 1.2741102632309912e+16,
+            "pct_change": 0.96,
+            "market_cap_ffill": 1.2741102632309912e+16
+        },
+        {
+            "date": "2025-07-17T00:00:00",
+            "market_cap": 1.2930423352873164e+16,
+            "pct_change": 1.49,
+            "market_cap_ffill": 1.2930423352873164e+16
+        },
+        {
+            "date": "2025-07-18T00:00:00",
+            "market_cap": 1.2980064036252608e+16,
+            "pct_change": 0.38,
+            "market_cap_ffill": 1.2980064036252608e+16
+        }
+    ],
+    "weekly_market_cap_changes": {
+        "mcap_start": 1.253849771070848e+16,
+        "mcap_end": 1.2980064036252608e+16,
+        "mcap_difference": 441566325544130.0,
+        "mcap_percentage_change": 3.52
+    },
+    "top_gainers_losers": [
+        {
+            "symbol": "CDIA.JK",
+            "mcap_start": 62414498299904.0,
+            "mcap_end": 121708275040256.0,
+            "mcap_change": 59293776740352.0,
+            "mcap_change_pct": 95.0
+        },
+        {
+            "symbol": "DCII.JK",
+            "mcap_start": 363521871183872.0,
+            "mcap_end": 584018714165248.0,
+            "mcap_change": 220496842981376.0,
+            "mcap_change_pct": 60.66
+        },
+        {
+            "symbol": "TOBA.JK",
+            "mcap_start": 6440771649536.0,
+            "mcap_end": 9537296793600.0,
+            "mcap_change": 3096525144064.0,
+            "mcap_change_pct": 48.08
+        },
+        {
+            "symbol": "ENRG.JK",
+            "mcap_start": 9134202159104.0,
+            "mcap_end": 12478176034816.0,
+            "mcap_change": 3343973875712.0,
+            "mcap_change_pct": 36.61
+        },
+        {
+            "symbol": "ARCI.JK",
+            "mcap_start": 14776825544704.0,
+            "mcap_end": 18253724254208.0,
+            "mcap_change": 3476898709504.0,
+            "mcap_change_pct": 23.53
+        },
+        {
+            "symbol": "MFIN.JK",
+            "mcap_start": 6971330134016.0,
+            "mcap_end": 5070058422272.0,
+            "mcap_change": -1901271711744.0,
+            "mcap_change_pct": -27.27
+        },
+        {
+            "symbol": "KRAS.JK",
+            "mcap_start": 6074769342464.0,
+            "mcap_end": 4797906812928.0,
+            "mcap_change": -1276862529536.0,
+            "mcap_change_pct": -21.02
+        },
+        {
+            "symbol": "FILM.JK",
+            "mcap_start": 19130379927552.0,
+            "mcap_end": 15671188520960.0,
+            "mcap_change": -3459191406592.0,
+            "mcap_change_pct": -18.08
+        },
+        {
+            "symbol": "BKSL.JK",
+            "mcap_start": 21131333468160.0,
+            "mcap_end": 19118826717184.0,
+            "mcap_change": -2012506750976.0,
+            "mcap_change_pct": -9.52
+        },
+        {
+            "symbol": "KPIG.JK",
+            "mcap_start": 17267606683648.0,
+            "mcap_end": 15804250718208.0,
+            "mcap_change": -1463355965440.0,
+            "mcap_change_pct": -8.47
+        }
+    ],
+    "indices_changes": [
+        {
+            "index_code": "IDXBUMN20",
+            "start_price": 349.59,
+            "end_price": 355.38,
+            "price_change": 5.79,
+            "price_change_pct": 1.66
+        },
+        {
+            "index_code": "LQ45",
+            "start_price": 777.28,
+            "end_price": 785.21,
+            "price_change": 7.93,
+            "price_change_pct": 1.02
+        },
+        {
+            "index_code": "JII70",
+            "start_price": 181.02,
+            "end_price": 182.88,
+            "price_change": 1.86,
+            "price_change_pct": 1.03
+        }
+    ],
+    "sectors_changes": [
+        {
+            "sector": "technology",
+            "sub_sector": "Software & IT Services",
+            "total_market_cap": 846805978694749.0,
+            "mcap_change_1w": 39.5,
+            "mcap_change_1y": 217.65,
+            "mcap_change_ytd": 149.12
+        },
+        {
+            "sector": "infrastructures",
+            "sub_sector": "Utilities",
+            "total_market_cap": 1278422111088640.0,
+            "mcap_change_1w": 35.21,
+            "mcap_change_1y": 4.1,
+            "mcap_change_ytd": -1.34
+        },
+        {
+            "sector": "infrastructures",
+            "sub_sector": "Heavy Constructions & Civil Engineering",
+            "total_market_cap": 51340475660288.0,
+            "mcap_change_1w": 12.66,
+            "mcap_change_1y": 26.91,
+            "mcap_change_ytd": 22.63
+        }
+    ],
+    "top_3_companies_per_sector": [
+        {
+            "symbol": "DCII.JK",
+            "close": 245000,
+            "mcap_change_pct": 60.66,
+            "sub_sector": "Software & IT Services",
+            "rn": 1,
+            "round": 804.73,
+            "total_market_cap": 846805978694749.0
+        },
+        {
+            "symbol": "WIFI.JK",
+            "close": 2700,
+            "mcap_change_pct": 32.35,
+            "sub_sector": "Software & IT Services",
+            "rn": 2,
+            "round": 39.61,
+            "total_market_cap": 846805978694749.0
+        },
+        {
+            "symbol": "EDGE.JK",
+            "close": 4640,
+            "mcap_change_pct": 18.97,
+            "sub_sector": "Software & IT Services",
+            "rn": 3,
+            "round": 46.95,
+            "total_market_cap": 846805978694749.0
+        },
+        {
+            "symbol": "PGEO.JK",
+            "close": 1655,
+            "mcap_change_pct": 11.82,
+            "sub_sector": "Utilities",
+            "rn": 1,
+            "round": 29.61,
+            "total_market_cap": 1278422111088640.0
+        },
+        {
+            "symbol": "BREN.JK",
+            "close": 8000,
+            "mcap_change_pct": 9.59,
+            "sub_sector": "Utilities",
+            "rn": 2,
+            "round": 521.07,
+            "total_market_cap": 1278422111088640.0
+        },
+        {
+            "symbol": "ARKO.JK",
+            "close": 855,
+            "mcap_change_pct": 5.56,
+            "sub_sector": "Utilities",
+            "rn": 3,
+            "round": 52.58,
+            "total_market_cap": 1278422111088640.0
+        },
+        {
+            "symbol": "NRCA.JK",
+            "close": 815,
+            "mcap_change_pct": 93.13,
+            "sub_sector": "Heavy Constructions & Civil Engineering",
+            "rn": 1,
+            "round": 20.81,
+            "total_market_cap": 51340475660288.0
+        },
+        {
+            "symbol": "SSIA.JK",
+            "close": 2850,
+            "mcap_change_pct": 22.32,
+            "sub_sector": "Heavy Constructions & Civil Engineering",
+            "rn": 2,
+            "round": 28.89,
+            "total_market_cap": 51340475660288.0
+        },
+        {
+            "symbol": "ADHI.JK",
+            "close": 264,
+            "mcap_change_pct": 6.45,
+            "sub_sector": "Heavy Constructions & Civil Engineering",
+            "rn": 3,
+            "round": 8.19,
+            "total_market_cap": 51340475660288.0
+        }
+    ],
+    "top_volume": [
+        {
+            "symbol": "GOTO.JK",
+            "total_volume": 13040057804.0
+        },
+        {
+            "symbol": "BUMI.JK",
+            "total_volume": 7393129300.0
+        },
+        {
+            "symbol": "BRMS.JK",
+            "total_volume": 4456926600.0
+        },
+        {
+            "symbol": "CUAN.JK",
+            "total_volume": 2938284700.0
+        },
+        {
+            "symbol": "DEWA.JK",
+            "total_volume": 2412065900.0
+        }
+    ],
+    "top_value": [
+        {
+            "symbol": "BMRI.JK",
+            "total_value": 5837757558000.0
+        },
+        {
+            "symbol": "CUAN.JK",
+            "total_value": 4873880520000.0
+        },
+        {
+            "symbol": "PTRO.JK",
+            "total_value": 4425048147000.0
+        },
+        {
+            "symbol": "BBCA.JK",
+            "total_value": 3969428942500.0
+        },
+        {
+            "symbol": "BRPT.JK",
+            "total_value": 3639686553000.0
+        }
+    ],
+    "ipo_this_week": [],
+    "upcoming_dividends": [],
+    "stock_split_upcoming": [
+        {
+            "symbol": "CUAN.JK",
+            "date": "2025-07-15",
+            "split_ratio": 10.0
+        }
+    ],
+    "corporate_action_compilation": [
+        {
+            "date": "2025-07-14",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-07-15",
+            "ipo": 0,
+            "div": 0,
+            "split": 1,
+            "total": 1
+        },
+        {
+            "date": "2025-07-16",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-07-17",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-07-18",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        }
+    ]
+}
