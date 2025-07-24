@@ -1,32 +1,47 @@
-import pandas as pd
-from datetime import datetime, timedelta,date
-import pandas as pd
+# Standard Library
+import os
+import math
 import json
+import base64
+from io import BytesIO
+from datetime import datetime, timedelta, date
 from decimal import Decimal
 
+# Third-Party Libraries
+import numpy as np
+import pandas as pd
+import requests
+from dotenv import load_dotenv
+import psycopg2
+
+# Plotting & Visualization
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
 import matplotlib.dates as mdates
 import matplotlib.ticker as ticker
-import numpy as np
+import matplotlib.font_manager as fm
 
-import psycopg2
-from dotenv import load_dotenv
-import os
-
+# PDF Generation (ReportLab)
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.lib import colors
 from reportlab.lib.utils import ImageReader
-from reportlab.pdfbase.pdfmetrics import stringWidth
-from io import BytesIO
-import requests
 
+# PDF to Image Conversion
 from pdf2image import convert_from_path
+
+# Email (SendGrid)
 from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
-import base64
+from sendgrid.helpers.mail import (
+    Mail,
+    Attachment,
+    FileContent,
+    FileName,
+    FileType,
+    Disposition
+)
+
 
 # Load environment variables from .env
 load_dotenv()
@@ -1826,6 +1841,15 @@ def main():
             if isinstance(obj, date):
                 return obj.isoformat()
             return super().default(obj)
+        
+    # Fetch Timely fact data
+    timely_fact = fetch_query("""
+        SELECT symbol, interesting_facts
+        FROM idx_interesting_facts_timely
+        where interesting_facts != '[]'                  
+                          """, cur)
+
+    timely_fact.set_index('symbol',inplace=True)
 
     # Prepare your compiled dictionary
     compiled_data = {
@@ -1842,7 +1866,8 @@ def main():
         "stock_split_upcoming": df_to_serializable(stock_split),
         "corporate_action_compilation": (
             ca_comp if isinstance(ca_comp, (list, dict)) else df_to_serializable(ca_comp)
-        )
+        ),
+        "timely_fact": timely_fact['interesting_facts'].to_dict()
     }
 
     output_folder = "json_output"
@@ -1869,14 +1894,27 @@ def main():
     output_filename = f"{next_number}_{today_str}.json"
 
     output_path = os.path.join(output_folder, output_filename)
-
+    
+    def clean_nans(obj):
+        """
+        Recursively replace NaN, Infinity, -Infinity with None in nested structures.
+        """
+        if isinstance(obj, dict):
+            return {k: clean_nans(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [clean_nans(v) for v in obj]
+        elif isinstance(obj, float):
+            return None if math.isnan(obj) or math.isinf(obj) else obj
+        else:
+            return obj
+    
     # Save JSON
     with open(output_path, "w") as f:
-        json.dump(compiled_data, f, indent=4, cls=CustomJSONEncoder)
+        json.dump(clean_nans(compiled_data), f, indent=4, cls=CustomJSONEncoder,allow_nan=False)
 
     print("✅ JSON created")
 
-    # Send Email
+    #Send Email
     send_email(output_dir)
 
 if __name__ == "__main__":
