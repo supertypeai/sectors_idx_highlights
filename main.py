@@ -1701,7 +1701,7 @@ def main():
             ) and symbol not in (select symbol from idx_ipo_details_12m where listing_date > DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 month')
         ) AS end_data
         ON start_data.symbol = end_data.symbol
-        WHERE start_data.mcap_start >= 3000000000000
+        WHERE start_data.mcap_start >= 1500000000000
         ORDER BY mcap_change_pct DESC
         ) as changes
         left join idx_company_profile icp on changes.symbol = icp.symbol
