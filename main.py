@@ -737,12 +737,17 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
 
             # Texts to draw
             label = "P/E"
-            if top_3_comp_sectors.loc[i + (j*3), 'round'] > 100:
+
+            value = top_3_comp_sectors.loc[i + (j * 3), 'round']
+
+            if pd.isna(value):
+                number = "-"
+            elif value > 100:
                 number = "> 100"
-            elif top_3_comp_sectors.loc[i + (j*3), 'round'] < 0:
+            elif value < 0:
                 number = "< 0"
             else:
-                number = f"{top_3_comp_sectors.loc[i + (j*3), 'round']}"
+                number = f"{value}"
             
             # Calculate their widths
             label_width = pdf.stringWidth(label, "Inter", 18)
@@ -1735,7 +1740,7 @@ def main():
         left join sub_sec_rank ssr on daily_change.sub_sector = ssr.sub_sector
         order by ssr.rank_sub_sec, daily_change.rn;
         """, cur)
-
+    
     ## Top Volume
     top_volume = fetch_query("""
         SELECT symbol, sum(volume) as total_volume
