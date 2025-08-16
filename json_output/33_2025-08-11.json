@@ -1,0 +1,520 @@
+{
+    "market_cap_history": [
+        {
+            "date": "2025-08-11T00:00:00",
+            "market_cap": 1.3576717573976064e+16,
+            "pct_change": "null",
+            "market_cap_ffill": 1.3576717573976064e+16
+        },
+        {
+            "date": "2025-08-12T00:00:00",
+            "market_cap": 1.388769739808768e+16,
+            "pct_change": 2.29,
+            "market_cap_ffill": 1.388769739808768e+16
+        },
+        {
+            "date": "2025-08-13T00:00:00",
+            "market_cap": 1.4068564752418816e+16,
+            "pct_change": 1.3,
+            "market_cap_ffill": 1.4068564752418816e+16
+        },
+        {
+            "date": "2025-08-14T00:00:00",
+            "market_cap": 1.4194016240060416e+16,
+            "pct_change": 0.89,
+            "market_cap_ffill": 1.4194016240060416e+16
+        },
+        {
+            "date": "2025-08-15T00:00:00",
+            "market_cap": 1.4107348315236352e+16,
+            "pct_change": -0.61,
+            "market_cap_ffill": 1.4107348315236352e+16
+        }
+    ],
+    "weekly_market_cap_changes": {
+        "mcap_start": 1.3576717573976064e+16,
+        "mcap_end": 1.4107348315236352e+16,
+        "mcap_difference": 530630741260288.0,
+        "mcap_percentage_change": 3.91
+    },
+    "top_gainers_losers": [
+        {
+            "symbol": "LIFE.JK",
+            "mcap_start": 15172500455424.0,
+            "mcap_end": 24937500770304.0,
+            "mcap_change": 9765000314880.0,
+            "mcap_change_pct": 64.36
+        },
+        {
+            "symbol": "DCII.JK",
+            "mcap_start": 603029111832576.0,
+            "mcap_end": 857911597203456.0,
+            "mcap_change": 254882485370880.0,
+            "mcap_change_pct": 42.27
+        },
+        {
+            "symbol": "MLPT.JK",
+            "mcap_start": 96750001979392.0,
+            "mcap_end": 132187508703232.0,
+            "mcap_change": 35437506723840.0,
+            "mcap_change_pct": 36.63
+        },
+        {
+            "symbol": "INPP.JK",
+            "mcap_start": 8833779892224.0,
+            "mcap_end": 10958360543232.0,
+            "mcap_change": 2124580651008.0,
+            "mcap_change_pct": 24.05
+        },
+        {
+            "symbol": "SGRO.JK",
+            "mcap_start": 5383115505664.0,
+            "mcap_end": 6565218222080.0,
+            "mcap_change": 1182102716416.0,
+            "mcap_change_pct": 21.96
+        },
+        {
+            "symbol": "SURE.JK",
+            "mcap_start": 5541046255616.0,
+            "mcap_end": 4837183324160.0,
+            "mcap_change": -703862931456.0,
+            "mcap_change_pct": -12.7
+        },
+        {
+            "symbol": "POLU.JK",
+            "mcap_start": 5962499883008.0,
+            "mcap_end": 5324999753728.0,
+            "mcap_change": -637500129280.0,
+            "mcap_change_pct": -10.69
+        },
+        {
+            "symbol": "CMNT.JK",
+            "mcap_start": 15584204947456.0,
+            "mcap_end": 14042910425088.0,
+            "mcap_change": -1541294522368.0,
+            "mcap_change_pct": -9.89
+        },
+        {
+            "symbol": "NETV.JK",
+            "mcap_start": 5955911680000.0,
+            "mcap_end": 5376864944128.0,
+            "mcap_change": -579046735872.0,
+            "mcap_change_pct": -9.72
+        },
+        {
+            "symbol": "ADMR.JK",
+            "mcap_start": 45379353575424.0,
+            "mcap_end": 41291123523584.0,
+            "mcap_change": -4088230051840.0,
+            "mcap_change_pct": -9.01
+        }
+    ],
+    "indices_changes": [
+        {
+            "index_code": "IDXBUMN20",
+            "start_price": 359.58,
+            "end_price": 373.24,
+            "price_change": 13.66,
+            "price_change_pct": 3.8
+        },
+        {
+            "index_code": "LQ45",
+            "start_price": 799.59,
+            "end_price": 821.06,
+            "price_change": 21.47,
+            "price_change_pct": 2.69
+        },
+        {
+            "index_code": "JII70",
+            "start_price": 189.09,
+            "end_price": 191.42,
+            "price_change": 2.33,
+            "price_change_pct": 1.23
+        }
+    ],
+    "sectors_changes": [
+        {
+            "sector": "technology",
+            "sub_sector": "Software & IT Services",
+            "total_market_cap": 1226225296189440.0,
+            "mcap_change_1w": 25.13,
+            "mcap_change_1y": 360.76,
+            "mcap_change_ytd": 259.65
+        },
+        {
+            "sector": "financials",
+            "sub_sector": "Insurance",
+            "total_market_cap": 53541004394496.0,
+            "mcap_change_1w": 23.96,
+            "mcap_change_1y": 16.56,
+            "mcap_change_ytd": 14.18
+        },
+        {
+            "sector": "consumer_cyclicals",
+            "sub_sector": "Household Goods",
+            "total_market_cap": 6821733191680.0,
+            "mcap_change_1w": 9.42,
+            "mcap_change_1y": 39.48,
+            "mcap_change_ytd": 29.05
+        }
+    ],
+    "top_3_companies_per_sector": [
+        {
+            "symbol": "WIRG.JK",
+            "close": 181,
+            "mcap_change_pct": 53.39,
+            "sub_sector": "Software & IT Services",
+            "rn": 1,
+            "round": 27.43,
+            "total_market_cap": 1226225296189440.0
+        },
+        {
+            "symbol": "DCII.JK",
+            "close": 359900,
+            "mcap_change_pct": 42.27,
+            "sub_sector": "Software & IT Services",
+            "rn": 2,
+            "round": 770.17,
+            "total_market_cap": 1226225296189440.0
+        },
+        {
+            "symbol": "HDIT.JK",
+            "close": 36,
+            "mcap_change_pct": 38.46,
+            "sub_sector": "Software & IT Services",
+            "rn": 3,
+            "round": -2.09,
+            "total_market_cap": 1226225296189440.0
+        },
+        {
+            "symbol": "LIFE.JK",
+            "close": 11875,
+            "mcap_change_pct": 64.36,
+            "sub_sector": "Insurance",
+            "rn": 1,
+            "round": 81.08,
+            "total_market_cap": 53541004394496.0
+        },
+        {
+            "symbol": "JMAS.JK",
+            "close": 151,
+            "mcap_change_pct": 11.85,
+            "sub_sector": "Insurance",
+            "rn": 2,
+            "round": null,
+            "total_market_cap": 53541004394496.0
+        },
+        {
+            "symbol": "AHAP.JK",
+            "close": 73,
+            "mcap_change_pct": 8.96,
+            "sub_sector": "Insurance",
+            "rn": 3,
+            "round": null,
+            "total_market_cap": 53541004394496.0
+        },
+        {
+            "symbol": "MGLV.JK",
+            "close": 885,
+            "mcap_change_pct": 42.74,
+            "sub_sector": "Household Goods",
+            "rn": 1,
+            "round": null,
+            "total_market_cap": 6821733191680.0
+        },
+        {
+            "symbol": "GEMA.JK",
+            "close": 121,
+            "mcap_change_pct": 19.8,
+            "sub_sector": "Household Goods",
+            "rn": 2,
+            "round": 6.84,
+            "total_market_cap": 6821733191680.0
+        },
+        {
+            "symbol": "OLIV.JK",
+            "close": 27,
+            "mcap_change_pct": 17.39,
+            "sub_sector": "Household Goods",
+            "rn": 3,
+            "round": -9.2,
+            "total_market_cap": 6821733191680.0
+        }
+    ],
+    "top_volume": [
+        {
+            "symbol": "GOTO.JK",
+            "total_volume": 13075962500.0
+        },
+        {
+            "symbol": "BUMI.JK",
+            "total_volume": 3341836200.0
+        },
+        {
+            "symbol": "BKSL.JK",
+            "total_volume": 2980202000.0
+        },
+        {
+            "symbol": "BRMS.JK",
+            "total_volume": 1552470400.0
+        },
+        {
+            "symbol": "BUKA.JK",
+            "total_volume": 1420160900.0
+        }
+    ],
+    "top_value": [
+        {
+            "symbol": "BBCA.JK",
+            "total_value": 5441642055000.0
+        },
+        {
+            "symbol": "BBRI.JK",
+            "total_value": 5153514243000.0
+        },
+        {
+            "symbol": "BMRI.JK",
+            "total_value": 4003420702000.0
+        },
+        {
+            "symbol": "TLKM.JK",
+            "total_value": 3881729618000.0
+        },
+        {
+            "symbol": "DSSA.JK",
+            "total_value": 3683612460000.0
+        }
+    ],
+    "ipo_this_week": [],
+    "upcoming_dividends": [],
+    "stock_split_upcoming": [],
+    "corporate_action_compilation": [
+        {
+            "date": "2025-08-11",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-08-12",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-08-13",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-08-14",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-08-15",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        }
+    ],
+    "timely_fact": {
+        "AADI.JK": [
+            {
+                "valuation": "AADI.JK has a 5-year average P/E ratio of 3.18 , which is lower than the peer average of 9.46 within the Oil, Gas & Coal sub-sector. ",
+                "90_days_low": "The close price ofAADI.JK on 2025-08-14) was 6,975, which is near its 90-day low. It is trading 0.05% above its 90-day low."
+            }
+        ],
+        "ADRO.JK": [
+            {
+                "valuation": "ADRO.JK has a 5-year average P/B ratio of 0.91 , which is below the peer average of 0.98 within the Oil, Gas & Coal sub-sector. "
+            }
+        ],
+        "ASII.JK": [
+            {
+                "ytd_high": "ASII.JK closed at 5,100 on 2025-08-14 , trading 2.86% below its year-to-date high.",
+                "valuation": "ASII.JK has a 5-year average P/E ratio of 6.97 and P/B ratio of 0.92 . These ratios are within the Multi-sector Holdings sub-sector. The 5-year average P/E ratio of the company is lower than the peer average of 13.63 , and the 5-year average P/B ratio is below the peer average of 1.44.",
+                "90_days_high": "ASII.JK closed at 5,100 on 2025-08-14 , trading 2.86% below its 90-day high.",
+                "52_weeks_high": "ASII.JK closed at 5,100 on 2025-08-14 , trading 3.77% below its 52-week high."
+            }
+        ],
+        "BBNI.JK": [
+            {
+                "valuation": "BBNI.JK has a 5-year average P/E ratio of 9.14 , which is lower than the peer average of 15.93 within the Banks sub-sector. ",
+                "90_days_high": "BBNI.JK closed at 4,390 on 2025-08-14 , trading 4.15% below its 90-day high."
+            }
+        ],
+        "BBRI.JK": [
+            {
+                "volume": "BBRI.JK ranked third in terms of average trading volume on the Indonesia Stock Exchange over the last 7 days, with an average of 190.96M shares traded daily. "
+            }
+        ],
+        "BELI.JK": [
+            {
+                "ytd_low": "The close price ofBELI.JK on 2025-08-14) was 376, which is near its year-to-date low. It is trading 0.01% above its year-to-date low.",
+                "90_days_low": "The close price ofBELI.JK on 2025-08-14) was 376, which is near its 90-day low. It is trading 0.01% above its 90-day low.",
+                "52_weeks_low": "The close price ofBELI.JK on 2025-08-14) was 376, which is near its 52-week low. It is trading 0.01% above its 52-week low.",
+                "all_time_low": "The close price ofBELI.JK on 2025-08-14) was 376, which is near its all time low. It is trading 0.01% above its all-time low."
+            }
+        ],
+        "BREN.JK": [
+            {
+                "90_days_high": "BREN.JK closed at 9,225 on 2025-08-14 , trading 2.38% below its 90-day high."
+            }
+        ],
+        "BRMS.JK": [
+            {
+                "volume": "BRMS.JK ranked second in terms of average trading volume on the Indonesia Stock Exchange over the last 7 days, with an average of 448.07M shares traded daily. "
+            }
+        ],
+        "BYAN.JK": [
+            {
+                "90_days_low": "The close price ofBYAN.JK on 2025-08-14) was 18,300, which is near its 90-day low. It is trading 0.01% above its 90-day low."
+            }
+        ],
+        "CASA.JK": [
+            {
+                "ytd_high": "CASA.JK closed at 1,105 on 2025-08-14 , trading 1.34% below its year-to-date high.",
+                "90_days_high": "CASA.JK closed at 1,105 on 2025-08-14 , trading 1.34% below its 90-day high.",
+                "52_weeks_high": "CASA.JK closed at 1,105 on 2025-08-14 , trading 1.34% below its 52-week high.",
+                "all_time_high": "CASA.JK closed at 1,105 on 2025-08-14 , trading 1.34% below its all-time high."
+            }
+        ],
+        "CPIN.JK": [
+            {
+                "90_days_low": "The close price ofCPIN.JK on 2025-08-14) was 4,450, which is near its 90-day low. It is trading 0.02% above its 90-day low."
+            }
+        ],
+        "DNET.JK": [
+            {
+                "90_days_low": "The close price ofDNET.JK on 2025-08-14) was 9,325, which is near its 90-day low. It is trading 0.04% above its 90-day low."
+            }
+        ],
+        "DSSA.JK": [
+            {
+                "ytd_high": "DSSA.JK closed at 92,000 on 2025-08-14 , trading 2.65% below its year-to-date high.",
+                "90_days_high": "DSSA.JK closed at 92,000 on 2025-08-14 , trading 2.65% below its 90-day high.",
+                "52_weeks_high": "DSSA.JK closed at 92,000 on 2025-08-14 , trading 2.65% below its 52-week high.",
+                "all_time_high": "DSSA.JK closed at 92,000 on 2025-08-14 , trading 2.65% below its all-time high."
+            }
+        ],
+        "EMTK.JK": [
+            {
+                "ytd_high": "EMTK.JK closed at 1,015 on 2025-08-14 , trading 3.33% below its year-to-date high.",
+                "valuation": "EMTK.JK has a 5-year average P/B ratio of 1.81 , which is below the peer average of 2.49 within the Software & IT Services sub-sector. ",
+                "90_days_high": "EMTK.JK closed at 1,015 on 2025-08-14 , trading 3.33% below its 90-day high.",
+                "52_weeks_high": "EMTK.JK closed at 1,015 on 2025-08-14 , trading 3.33% below its 52-week high."
+            }
+        ],
+        "EXCL.JK": [
+            {
+                "ytd_high": "EXCL.JK closed at 2,960 on 2025-08-14 , trading 1.66% below its year-to-date high.",
+                "valuation": "EXCL.JK has a 5-year average P/B ratio of 1.39 , which is below the peer average of 1.91 within the Telecommunication sub-sector. ",
+                "90_days_high": "EXCL.JK closed at 2,960 on 2025-08-14 , trading 1.66% below its 90-day high.",
+                "52_weeks_high": "EXCL.JK closed at 2,960 on 2025-08-14 , trading 1.66% below its 52-week high."
+            }
+        ],
+        "GEMS.JK": [
+            {
+                "90_days_low": "The close price ofGEMS.JK on 2025-08-14) was 9,250, which is near its 90-day low. It is trading 0.05% above its 90-day low.",
+                "90_days_high": "GEMS.JK closed at 9,250 on 2025-08-14 , trading 4.39% below its 90-day high."
+            }
+        ],
+        "GOTO.JK": [
+            {
+                "volume": "GOTO.JK ranked first in terms of average trading volume on the Indonesia Stock Exchange over the last 7 days, with an average of 3.25B shares traded daily. "
+            }
+        ],
+        "HMSP.JK": [
+            {
+                "90_days_low": "The close price ofHMSP.JK on 2025-08-14) was 540, which is near its 90-day low. It is trading 0.05% above its 90-day low."
+            }
+        ],
+        "ICBP.JK": [
+            {
+                "volume": " On 2025-08-14 , the trading volume of ICBP.JK reached 25.59M shares (valued at IDR 248.86B ). It was the highest trading volume for the stock in the past 90 days. ",
+                "ytd_low": "The close price ofICBP.JK on 2025-08-14) was 9,725, which is near its year-to-date low. It is trading 0.04% above its year-to-date low.",
+                "90_days_low": "The close price ofICBP.JK on 2025-08-14) was 9,725, which is near its 90-day low. It is trading 0.04% above its 90-day low.",
+                "52_weeks_low": "The close price ofICBP.JK on 2025-08-14) was 9,725, which is near its 52-week low. It is trading 0.04% above its 52-week low."
+            }
+        ],
+        "IMPC.JK": [
+            {
+                "ytd_high": "IMPC.JK reached its year-to-date high on 2025-08-14 , with its latest close price at IDR 825",
+                "90_days_high": "IMPC.JK reached its 90-days high on 2025-08-14 , with its latest close price at IDR 825",
+                "52_weeks_high": "IMPC.JK surpassed its 52-weeks high on 2025-08-14 , with its latest close price at IDR 825",
+                "all_time_high": "IMPC.JK reached its all-time high on 2025-08-14 , with its latest close price at IDR 825"
+            }
+        ],
+        "INDF.JK": [
+            {
+                "valuation": "INDF.JK has a 5-year average P/E ratio of 6.69 and P/B ratio of 0.70 . These ratios are within the Food & Beverage sub-sector. The 5-year average P/E ratio of the company is lower than the peer average of 11.49 , and the 5-year average P/B ratio is below the peer average of 1.70."
+            }
+        ],
+        "MASA.JK": [
+            {
+                "ytd_low": "With latest close price at IDR 6,200 on 2025-08-14, MASA.JK has hit its year-to-date low.",
+                "ytd_high": "MASA.JK reached its year-to-date high on 2025-08-14 , with its latest close price at IDR 6,200",
+                "90_days_low": "With latest close price at IDR 6,200 on 2025-08-14, MASA.JK has hit its 90-days low.",
+                "52_weeks_low": "With latest close price at IDR 6,200 on 2025-08-14, MASA.JK has hit its 52-weeks low.",
+                "90_days_high": "MASA.JK reached its 90-days high on 2025-08-14 , with its latest close price at IDR 6,200",
+                "52_weeks_high": "MASA.JK surpassed its 52-weeks high on 2025-08-14 , with its latest close price at IDR 6,200"
+            }
+        ],
+        "NCKL.JK": [
+            {
+                "valuation": "NCKL.JK has a 5-year average P/E ratio of 9.00 , which is lower than the peer average of 11.50 within the Basic Materials sub-sector. "
+            }
+        ],
+        "PGEO.JK": [
+            {
+                "valuation": "PGEO.JK has a 5-year average P/E ratio of 20.78 , which is lower than the peer average of 39.56 within the Utilities sub-sector. "
+            }
+        ],
+        "SRAJ.JK": [
+            {
+                "ytd_high": "SRAJ.JK closed at 5,750 on 2025-08-14 , trading 2.54% below its year-to-date high.",
+                "90_days_high": "SRAJ.JK closed at 5,750 on 2025-08-14 , trading 2.54% below its 90-day high.",
+                "52_weeks_high": "SRAJ.JK closed at 5,750 on 2025-08-14 , trading 2.54% below its 52-week high.",
+                "all_time_high": "SRAJ.JK closed at 5,750 on 2025-08-14 , trading 2.54% below its all-time high."
+            }
+        ],
+        "SUPR.JK": [
+            {
+                "ytd_low": "With latest close price at IDR 43,850 on 2025-08-14, SUPR.JK has hit its year-to-date low.",
+                "ytd_high": "SUPR.JK closed at 43,850 on 2025-08-14 , trading 0.06% below its year-to-date high.",
+                "90_days_low": "With latest close price at IDR 43,850 on 2025-08-14, SUPR.JK has hit its 90-days low.",
+                "52_weeks_low": "With latest close price at IDR 43,850 on 2025-08-14, SUPR.JK has hit its 52-weeks low.",
+                "90_days_high": "SUPR.JK reached its 90-days high on 2025-08-14 , with its latest close price at IDR 43,850",
+                "52_weeks_high": "SUPR.JK closed at 43,850 on 2025-08-14 , trading 0.06% below its 52-week high."
+            }
+        ],
+        "TLKM.JK": [
+            {
+                "ytd_high": "TLKM.JK closed at 3,420 on 2025-08-14 , trading 2.01% below its year-to-date high.",
+                "valuation": "TLKM.JK has a 5-year average P/E ratio of 15.29 , which is lower than the peer average of 18.97 within the Telecommunication sub-sector. ",
+                "90_days_high": "TLKM.JK closed at 3,420 on 2025-08-14 , trading 2.01% below its 90-day high.",
+                "52_weeks_high": "TLKM.JK closed at 3,420 on 2025-08-14 , trading 2.01% below its 52-week high."
+            }
+        ],
+        "UNTR.JK": [
+            {
+                "valuation": "UNTR.JK has a 5-year average P/E ratio of 4.94 , which is lower than the peer average of 6.83 within the Industrial Goods sub-sector. ",
+                "90_days_high": "UNTR.JK closed at 24,175 on 2025-08-14 , trading 1.33% below its 90-day high."
+            }
+        ],
+        "UNVR.JK": [
+            {
+                "ytd_high": "UNVR.JK closed at 1,830 on 2025-08-14 , trading 4.44% below its year-to-date high.",
+                "90_days_high": "UNVR.JK closed at 1,830 on 2025-08-14 , trading 4.44% below its 90-day high."
+            }
+        ]
+    }
+}
