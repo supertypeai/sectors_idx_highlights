@@ -1531,7 +1531,7 @@ def main():
             )
             ), 0)
         ),2) AS mcap_percentage_change;""", cur)
-    
+
     ## 1 week top gainers and losers
     top_gainers_losers = fetch_query("""
         -- Top 3 gainers
@@ -1845,35 +1845,35 @@ def main():
             if isinstance(obj, date):
                 return obj.isoformat()
             return super().default(obj)
-        
-    # Fetch Timely fact data
-    timely_fact = fetch_query("""
-        SELECT symbol, interesting_facts
-        FROM idx_interesting_facts_timely
-        where interesting_facts != '[]'                  
+    
+    tags = fetch_query("""
+       SELECT 
+            unnest(tags) AS tag,
+            array_agg(symbol ORDER BY symbol) AS symbols
+        FROM idx_company_report
+        where market_cap_rank <= 50
+        GROUP BY tag
+        ORDER BY tag;                
                           """, cur)
 
-    timely_fact.set_index('symbol',inplace=True)
+    tags.set_index('tag',inplace=True)
 
     # Prepare your compiled dictionary
     compiled_data = {
         "market_cap_history": hist_mcap.replace(np.nan,'null').to_dict(orient="records"),
-        "weekly_market_cap_changes": df_to_serializable(mcap_changes)[0] if not mcap_changes.empty else {},
-        "top_gainers_losers": df_to_serializable(top_gainers_losers),
-        "indices_changes": df_to_serializable(indices_changes),
-        "sectors_changes": df_to_serializable(sectors_changes),
-        "top_3_companies_per_sector": df_to_serializable(top_3_comp_sectors),
-        "top_volume": df_to_serializable(top_volume),
-        "top_value": df_to_serializable(top_value),
+        "weekly_market_cap_changes": df_to_serializable(mcap_changes[['mcap_start','mcap_end']])[0] if not mcap_changes.empty else {},
+        "top_gainers_losers": df_to_serializable(top_gainers_losers[['symbol','mcap_start','mcap_end']]),
+        "indices_changes": df_to_serializable(indices_changes[['index_code','start_price','end_price']]),
+        "sectors_changes": df_to_serializable(sectors_changes[['sub_sector','total_market_cap', 'mcap_change_1w', 'mcap_change_1y', 'mcap_change_ytd']]),
         "ipo_this_week": df_to_serializable(df_ipo),
         "upcoming_dividends": df_to_serializable(df_div),
         "stock_split_upcoming": df_to_serializable(stock_split),
         "corporate_action_compilation": (
             ca_comp if isinstance(ca_comp, (list, dict)) else df_to_serializable(ca_comp)
         ),
-        "timely_fact": timely_fact['interesting_facts'].to_dict()
+        "company_tags": tags['symbols'].to_dict()
     }
-
+    
     output_folder = "json_output"
 
     # Scan existing files to find the latest number
