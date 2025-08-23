@@ -1919,7 +1919,7 @@ def main():
     print("✅ JSON created")
 
     #Send Email
-    # send_email(output_dir)
+    send_email(output_dir)
 
 if __name__ == "__main__":
     main()
