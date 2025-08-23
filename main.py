@@ -1789,7 +1789,7 @@ def main():
         FROM idx_daily_data
         ORDER BY symbol, date DESC
         ) idd ON iud.symbol = idd.symbol
-        where iud.ex_date > current_date""", cur)
+        where iud.ex_date > current_date - interval '1 week'""", cur)
 
     df_div = df_div.sort_values('ex_date')
 
@@ -1919,7 +1919,7 @@ def main():
     print("✅ JSON created")
 
     #Send Email
-    send_email(output_dir)
+    # send_email(output_dir)
 
 if __name__ == "__main__":
     main()
