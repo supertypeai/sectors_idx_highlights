@@ -284,31 +284,31 @@ def mcap_chart(hist_mcap):
             color="#F29942",
             linestyle='dashed')
 
-    # Market cap label
-    for x, y in zip(shifted_xs, hist_mcap["market_cap"]):
-        if np.isnan(float(y)):
-            ax.text(x, ((hist_mcap["market_cap"].max() + hist_mcap["market_cap"].min())/2), "Exchange\nHoliday",
-                fontsize=20, fontproperties=inter_semi_bold,
-                ha='center', va='bottom', color="white")
-        else:
-            ax.text(x, float(y) * 1.05, f"IDR {format_number_short_2d(y)}",
-                fontsize=20, fontproperties=inter_semi_bold,
-                ha='center', va='bottom', color="#F29942")
-            prev_y = float(y)
+    # # Market cap label
+    # for x, y in zip(shifted_xs, hist_mcap["market_cap"]):
+    #     if np.isnan(float(y)):
+    #         ax.text(x, ((hist_mcap["market_cap"].max() + hist_mcap["market_cap"].min())/2), "Exchange\nHoliday",
+    #             fontsize=20, fontproperties=inter_semi_bold,
+    #             ha='center', va='bottom', color="white")
+    #     else:
+    #         ax.text(x, float(y) * 1.05, f"IDR {format_number_short_2d(y)}",
+    #             fontsize=20, fontproperties=inter_semi_bold,
+    #             ha='center', va='bottom', color="#F29942")
+    #         prev_y = float(y)
 
-    # Percent change label
-    for x, y, z in zip(shifted_xs, hist_mcap["market_cap"], hist_mcap["pct_change"]):
-        if not np.isnan(z):
-            label = f"{z:.2f}%"
-            bbox = dict(
-                boxstyle="round, pad=0.5",
-                facecolor='#568475' if z >= 0 else '#D53E50',
-                edgecolor='none',
-                alpha=1
-            )
-            ax.text(x, float(y) * 1.17, label,
-                    fontsize=20, fontproperties=inter_semi_bold,
-                    ha='center', va='bottom', color="white", bbox=bbox)
+    # # Percent change label
+    # for x, y, z in zip(shifted_xs, hist_mcap["market_cap"], hist_mcap["pct_change"]):
+    #     if not np.isnan(z):
+    #         label = f"{z:.2f}%"
+    #         bbox = dict(
+    #             boxstyle="round, pad=0.5",
+    #             facecolor='#568475' if z >= 0 else '#D53E50',
+    #             edgecolor='none',
+    #             alpha=1
+    #         )
+    #         ax.text(x, float(y) * 1.17, label,
+    #                 fontsize=20, fontproperties=inter_semi_bold,
+    #                 ha='center', va='bottom', color="white", bbox=bbox)
 
     # Style ticks with spacing
     ax.tick_params(axis='x', labelsize=28, colors="white", pad=20)  # Add horizontal padding (below x-axis)
@@ -338,7 +338,7 @@ def mcap_chart(hist_mcap):
         ax.spines[spine].set_color('white')
 
     # Y-limits
-    ax.set_ylim((min_mcap * 0.5), (max_mcap * 1.5))
+    ax.set_ylim((min_mcap*0.98), (max_mcap*1.02))
 
     for i in range(0,4):
         ax.axvline(shifted_start+0.5+i, color='white', linestyle='dashed', linewidth=1, alpha=0.3)
@@ -697,35 +697,38 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
             y_idr = 734 - (i * 75)
 
             # Retrieve values
-            percentage = top_3_comp_sectors.loc[i + (j*3), "mcap_change_pct"]
-            percentage_text = f"+{percentage}%" if percentage > 0 else f"{percentage}%"
-
-            text = f"IDR {format_number_short_1d(top_3_comp_sectors.loc[i + (j*3), 'close'])}"
-
-            # Calculate width for centering
-            percentage_width = pdf.stringWidth(percentage_text, "Inter-Bold", 22)
-            text_width = pdf.stringWidth(text, "Inter", 18)
-
-            percentage_x = center - (percentage_width/2)
-            text_x = center - (text_width/2)
-
+            percentage = top_3_comp_sectors.loc[i + (j*3), "mcap_change_value"]
+            
             # Set color for percentage first
             if percentage > 0:
                 r, g, b = hex_to_rgb("#ABDDA4")  # green
                 pdf.setFillColorRGB(r, g, b)
+                percentage_text = f'↑ IDR {format_number_short_1d(abs(percentage))}'
+
             elif percentage < 0:
                 r, g, b = hex_to_rgb("#D53E50")  # orange-red
                 pdf.setFillColorRGB(r, g, b)
+                percentage_text = f'↓ IDR {format_number_short_1d(abs(percentage))}'
             else:
                 pdf.setFillColor(colors.white)
+                percentage_text = f'↑ IDR {format_number_short_1d(abs(percentage))}'
+
+            text = f"IDR {format_number_short_1d(top_3_comp_sectors.loc[i + (j*3), 'close'])}"
+
+            # Calculate width for centering
+            percentage_width = pdf.stringWidth(percentage_text, "Inter-Bold", 18)
+            text_width = pdf.stringWidth(text, "Inter", 16)
+
+            percentage_x = center - (percentage_width/2)
+            text_x = center - (text_width/2)
 
             # Draw percentage
-            pdf.setFont("Inter-Bold", 22)
+            pdf.setFont("Inter-Bold", 18)
             pdf.drawString(percentage_x, y_percentage, percentage_text)
 
             # Reset color for the secondary text
             pdf.setFillColor(colors.white)
-            pdf.setFont("Inter", 18)
+            pdf.setFont("Inter", 16)
             pdf.drawString(text_x, y_idr, text)
                     
 
@@ -738,7 +741,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
             # Texts to draw
             label = "P/E"
 
-            value = top_3_comp_sectors.loc[i + (j * 3), 'round']
+            value = top_3_comp_sectors.loc[i + (j * 3), 'pe_ttm']
 
             if pd.isna(value):
                 number = "-"
@@ -1679,65 +1682,102 @@ def main():
 
     # Top 3 companies per sector
     top_3_comp_sectors = fetch_query("""
-        with daily_data as (SELECT changes.*, ism.sub_sector
-        FROM (
+        WITH daily_data AS (
+    SELECT changes.*, ism.sub_sector
+    FROM (
         SELECT
             start_data.symbol,
-            end_data.close_end as close,
-            ROUND(100.0 * (end_data.close_end - start_data.close_start) / NULLIF(start_data.close_start, 0), 2) AS mcap_change_pct
+            end_data.close_end AS close,
+            start_data.mcap_start,
+            end_data.mcap_end,
+            -- absolute change in market cap
+            (end_data.mcap_end - start_data.mcap_start) AS mcap_change_value,
+            -- percentage change (optional for reference)
+            ROUND(
+                100.0 * (end_data.close_end - start_data.close_start) / NULLIF(start_data.close_start, 0),
+                2
+            ) AS mcap_change_pct
         FROM (
-            SELECT symbol, close as close_start, market_cap AS mcap_start,date
+            SELECT 
+                symbol, 
+                close AS close_start, 
+                market_cap AS mcap_start,
+                date
             FROM idx_daily_data
             WHERE date = (
-            SELECT MIN(date)
-            FROM idx_daily_data
-            WHERE date >= DATE_TRUNC('week', CURRENT_DATE)
-                AND date < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '1 week' 
-            ) and symbol not in (select symbol from idx_ipo_details_12m where listing_date > DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 month')
+                SELECT MIN(date)
+                FROM idx_daily_data
+                WHERE date >= DATE_TRUNC('week', CURRENT_DATE)
+                  AND date < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '1 week'
+            )
+            AND symbol NOT IN (
+                SELECT symbol 
+                FROM idx_ipo_details_12m 
+                WHERE listing_date > DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 month'
+            )
         ) AS start_data
         JOIN (
-            SELECT symbol, market_cap AS mcap_end, close as close_end,date
+            SELECT 
+                symbol, 
+                market_cap AS mcap_end, 
+                close AS close_end,
+                date
             FROM idx_daily_data
             WHERE date = (
-            SELECT MAX(date)
-            FROM idx_daily_data
-            WHERE date >= DATE_TRUNC('week', CURRENT_DATE)
-                AND date < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '1 week' 
-            ) and symbol not in (select symbol from idx_ipo_details_12m where listing_date > DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 month')
+                SELECT MAX(date)
+                FROM idx_daily_data
+                WHERE date >= DATE_TRUNC('week', CURRENT_DATE)
+                  AND date < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '1 week'
+            )
+            AND symbol NOT IN (
+                SELECT symbol 
+                FROM idx_ipo_details_12m 
+                WHERE listing_date > DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 month'
+            )
         ) AS end_data
         ON start_data.symbol = end_data.symbol
-        ORDER BY mcap_change_pct DESC
-        ) as changes
-        left join idx_company_profile icp on changes.symbol = icp.symbol
-        left join idx_subsector_metadata ism on icp.sub_sector_id = ism.sub_sector_id),
-        daily_change as (SELECT *
-        FROM (
+        ORDER BY mcap_change_value DESC
+    ) AS changes
+    LEFT JOIN idx_company_profile icp ON changes.symbol = icp.symbol
+    LEFT JOIN idx_subsector_metadata ism ON icp.sub_sector_id = ism.sub_sector_id
+),
+daily_change AS (
+    SELECT *
+    FROM (
         SELECT *,
-                ROW_NUMBER() OVER (PARTITION BY sub_sector ORDER BY mcap_change_pct DESC) AS rn
+               ROW_NUMBER() OVER (PARTITION BY sub_sector ORDER BY mcap_change_value DESC) AS rn
         FROM daily_data
         WHERE sub_sector IN (
             SELECT sub_sector 
             FROM idx_sector_reports
-            ORDER BY abs((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric * 100) desc
+            ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric) DESC
             LIMIT 3
         )
-        ) AS ranked
-        WHERE rn <= 3
-        ORDER BY sub_sector, mcap_change_pct DESC),
-        sub_sec_rank as (
-        SELECT 
+    ) AS ranked
+    WHERE rn <= 3
+    ORDER BY sub_sector, mcap_change_value DESC
+),
+sub_sec_rank AS (
+    SELECT 
         sub_sector,
         RANK() OVER (
-            ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric * 100) DESC
+            ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric) DESC
         ) AS rank_sub_sec
-        FROM idx_sector_reports
-        LIMIT 3
-        )
-        select daily_change.*, round(idmd.pe_ttm::numeric,2), isr.total_market_cap from daily_change
-        left join idx_calc_metrics_daily idmd on daily_change.symbol = idmd.symbol
-        left join idx_sector_reports isr on daily_change.sub_sector = isr.sub_sector
-        left join sub_sec_rank ssr on daily_change.sub_sector = ssr.sub_sector
-        order by ssr.rank_sub_sec, daily_change.rn;
+    FROM idx_sector_reports
+    LIMIT 3
+)
+SELECT 
+    daily_change.symbol,
+    daily_change.sub_sector,
+    daily_change.close,
+    daily_change.mcap_change_value,
+    ROUND(idmd.pe_ttm::numeric, 2) AS pe_ttm,
+    isr.total_market_cap
+FROM daily_change
+LEFT JOIN idx_calc_metrics_daily idmd ON daily_change.symbol = idmd.symbol
+LEFT JOIN idx_sector_reports isr ON daily_change.sub_sector = isr.sub_sector
+LEFT JOIN sub_sec_rank ssr ON daily_change.sub_sector = ssr.sub_sector
+ORDER BY ssr.rank_sub_sec, daily_change.rn
         """, cur)
     
     ## Top Volume
