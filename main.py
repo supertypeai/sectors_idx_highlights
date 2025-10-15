@@ -31,16 +31,13 @@ from reportlab.lib.utils import ImageReader
 # PDF to Image Conversion
 from pdf2image import convert_from_path
 
-# Email (SendGrid)
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import (
-    Mail,
-    Attachment,
-    FileContent,
-    FileName,
-    FileType,
-    Disposition
-)
+# Email (AWS SES)
+import boto3
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+from botocore.exceptions import BotoCoreError, ClientError
 
 
 # Load environment variables from .env
@@ -50,7 +47,12 @@ def send_email(image_folder):
 # CONFIG
     # image_folder = "pdf_image/5 - 9 May 2025"  # folder where images are stored
     allowed_extensions = {"jpg", "jpeg", "png"}
-    sendgrid_api_key = os.getenv('SENDGRID_API_KEY')
+    
+    # AWS SES configuration
+    aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
+    aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
+    aws_region = os.getenv('AWS_REGION', 'us-east-1')
+    
     from_email = "gerald@supertype.ai"
     to_email = ["geraldbryan9914@gmail.com","shusi.evelyn@gmail.com"]
 
@@ -61,44 +63,60 @@ def send_email(image_folder):
         if f.split(".")[-1].lower() in allowed_extensions
     ]
 
-    # Create attachments list
-    attachments = []
-    for path in image_files:
-        with open(path, "rb") as f:
-            data = f.read()
-            encoded_file = base64.b64encode(data).decode()
-
-        attachment = Attachment(
-            FileContent(encoded_file),
-            FileName(os.path.basename(path)),
-            FileType(f"image/{path.split('.')[-1]}"),
-            Disposition("attachment")
+    # Create AWS SES client
+    try:
+        ses_client = boto3.client(
+            'ses',
+            aws_access_key_id=aws_access_key_id,
+            aws_secret_access_key=aws_secret_access_key,
+            region_name=aws_region,
         )
-        attachments.append(attachment)
+    except Exception as e:
+        print("Failed to create SES client:", str(e))
+        return
 
-    # Create email
-    message = Mail(
-        from_email=from_email,
-        to_emails=to_email,
-        subject="All Images in Folder Attached",
-        html_content = """
+    # Create MIME message
+    msg = MIMEMultipart()
+    msg['Subject'] = "All Images in Folder Attached"
+    msg['From'] = from_email
+    msg['To'] = ", ".join(to_email)
+
+    # HTML body
+    html_content = """
     <p>Hi,</p>
     <p>Please find all image attachments for IDX Weekly Highlights.</p>
     <p>Thank you<br><br><br>
     Best regards,<br>
     Gerald</p>
     """
+    html_body = MIMEText(html_content, 'html')
+    msg.attach(html_body)
 
-    )
+    # Attach images
+    for path in image_files:
+        try:
+            with open(path, "rb") as f:
+                attachment = MIMEBase('application', 'octet-stream')
+                attachment.set_payload(f.read())
+                encoders.encode_base64(attachment)
+                attachment.add_header(
+                    'Content-Disposition',
+                    f'attachment; filename={os.path.basename(path)}'
+                )
+                msg.attach(attachment)
+        except Exception as e:
+            print(f"Failed to attach file {path}:", str(e))
 
-    # Add attachments
-    message.attachment = attachments
-
-    # Send email via SendGrid
+    # Send email via AWS SES
     try:
-        sg = SendGridAPIClient(sendgrid_api_key)
-        response = sg.send(message)
-        print("Email sent successfully:", response.status_code)
+        response = ses_client.send_raw_email(
+            Source=from_email,
+            Destinations=to_email,
+            RawMessage={'Data': msg.as_string()}
+        )
+        print("Email sent successfully. MessageId:", response['MessageId'])
+    except (BotoCoreError, ClientError) as e:
+        print("Failed to send email:", str(e))
     except Exception as e:
         print("Failed to send email:", str(e))
 
