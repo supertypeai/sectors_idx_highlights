@@ -96,13 +96,20 @@ def send_email(image_folder):
     for path in image_files:
         try:
             with open(path, "rb") as f:
-                attachment = MIMEBase('application', 'octet-stream')
+                # Determine mime type from extension when possible
+                ext = os.path.splitext(path)[1].lstrip('.').lower()
+                if ext in ('jpg', 'jpeg', 'png', 'gif', 'webp'):
+                    main_type = 'image'
+                    sub_type = 'jpeg' if ext in ('jpg', 'jpeg') else ext
+                else:
+                    main_type = 'application'
+                    sub_type = 'octet-stream'
+
+                attachment = MIMEBase(main_type, sub_type)
                 attachment.set_payload(f.read())
                 encoders.encode_base64(attachment)
-                attachment.add_header(
-                    'Content-Disposition',
-                    f'attachment; filename={os.path.basename(path)}'
-                )
+                # Use parameterized add_header so filename is quoted/escaped correctly
+                attachment.add_header('Content-Disposition', 'attachment', filename=os.path.basename(path))
                 msg.attach(attachment)
         except Exception as e:
             print(f"Failed to attach file {path}:", str(e))
@@ -119,6 +126,82 @@ def send_email(image_folder):
         print("Failed to send email:", str(e))
     except Exception as e:
         print("Failed to send email:", str(e))
+
+def send_email_batched(image_folder):
+    import shutil
+    import tempfile
+    from pathlib import Path
+    
+    # SES raw email limit (bytes)
+    SES_RAW_LIMIT = 10 * 1024 * 1024  # 10MB
+    MIME_OVERHEAD = 200_000
+    ALLOWED_EXT = {"jpg", "jpeg", "png"}
+    
+    def gather_image_files(folder_path):
+        # Collect all image files from folder
+        folder = Path(folder_path)
+        if not folder.exists():
+            print(f"Folder not found: {folder}")
+            return []
+        files = [p for p in sorted(folder.iterdir()) 
+                 if p.is_file() and p.suffix.lstrip('.').lower() in ALLOWED_EXT]
+        return files
+    
+    def make_batches(file_paths):
+        # Batch files so that after base64 encoding (+~33%) and MIME overhead
+        allowed_original = int((SES_RAW_LIMIT - MIME_OVERHEAD) * 3 / 4)
+        
+        batches = []
+        current = []
+        current_sum = 0
+        
+        for p in file_paths:
+            size = p.stat().st_size
+            if current_sum + size <= allowed_original:
+                current.append(p)
+                current_sum += size
+            else:
+                if current:
+                    batches.append(current)
+                current = [p]
+                current_sum = size
+        if current:
+            batches.append(current)
+        
+        return batches
+    
+    def copy_batch_to_temp(batch):
+        tmpdir = tempfile.mkdtemp(prefix="email_batch_")
+        for p in batch:
+            shutil.copy2(p, tmpdir)
+        return tmpdir
+    
+    # Gather all image files
+    files = gather_image_files(image_folder)
+    if not files:
+        print("No image files found in folder")
+        return
+    
+    # Create batches
+    batches = make_batches(files)
+    
+    if len(batches) == 1:
+        # No batching needed, send directly
+        print(f"Sending {len(files)} image(s) in single email")
+        send_email(image_folder)
+    else:
+        # Send in batches
+        print(f"Split into {len(batches)} batch(es) to respect SES size limits")
+        for i, batch in enumerate(batches, 1):
+            print(f"Sending batch {i}/{len(batches)} with {len(batch)} file(s)")
+            tmpdir = copy_batch_to_temp(batch)
+            try:
+                send_email(tmpdir)
+            finally:
+                try:
+                    shutil.rmtree(tmpdir)
+                except Exception as e:
+                    print(f"Failed to remove tempdir {tmpdir}: {e}")
 
 def set_connection():
     # Fetch variables
@@ -1977,7 +2060,7 @@ ORDER BY ssr.rank_sub_sec, daily_change.rn
     print("✅ JSON created")
 
     #Send Email
-    send_email(output_dir)
+    send_email_batched(output_dir)
 
 if __name__ == "__main__":
     main()
