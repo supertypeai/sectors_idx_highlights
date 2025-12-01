@@ -54,7 +54,7 @@ def send_email(image_folder):
     aws_region = os.getenv('AWS_REGION', 'us-east-1')
     
     from_email = "gerald@supertype.ai"
-    to_email = ["geraldbryan9914@gmail.com","shusi.evelyn@gmail.com"]
+    to_email = ["geraldbryan9914@gmail.com"]#,"shusi.evelyn@gmail.com"]
 
     # Collect all image files from the folder
     image_files = [
@@ -1769,6 +1769,7 @@ def main():
         ROUND((mcap_summary::jsonb->'mcap_change'->>'1y')::numeric * 100, 2) AS mcap_change_1y,
         ROUND((mcap_summary::jsonb->'mcap_change'->>'ytd')::numeric * 100, 2) AS mcap_change_ytd
         FROM idx_sector_reports
+        where sub_sector <> 'Alternative Energy'
         order by abs((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric * 100) desc
         limit 3;
         """, cur)
@@ -1851,6 +1852,7 @@ daily_change AS (
         WHERE sub_sector IN (
             SELECT sub_sector 
             FROM idx_sector_reports
+            where sub_sector <> 'Alternative Energy'
             ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric) DESC
             LIMIT 3
         )
@@ -1865,6 +1867,7 @@ sub_sec_rank AS (
             ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric) DESC
         ) AS rank_sub_sec
     FROM idx_sector_reports
+    where sub_sector <> 'Alternative Energy'
     LIMIT 3
 )
 SELECT 
