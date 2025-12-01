@@ -54,7 +54,7 @@ def send_email(image_folder):
     aws_region = os.getenv('AWS_REGION', 'us-east-1')
     
     from_email = "gerald@supertype.ai"
-    to_email = ["geraldbryan9914@gmail.com"]#,"shusi.evelyn@gmail.com"]
+    to_email = ["geraldbryan9914@gmail.com","shusi.evelyn@gmail.com"]
 
     # Collect all image files from the folder
     image_files = [
