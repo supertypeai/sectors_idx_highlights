@@ -511,6 +511,42 @@ def format_number_short_2d(num):
         return f"{num / 1_000_000:.2f}M"
     else:
         return f"{num:,.0f}"
+
+def top_3comp_bysec_process(df):
+    TARGET = 3
+
+    # Count rows per sub_sector
+    counts = df['sub_sector'].value_counts()
+
+    # If all groups already have >= 3 rows → return unchanged
+    if (counts >= TARGET).all():
+        result = df.copy()
+    else:
+        result_rows = []
+
+        for sector, group in df.groupby('sub_sector', sort=False):
+            # Append original group rows in *existing order*
+            result_rows.append(group)
+
+            # How many missing rows?
+            missing = TARGET - len(group)
+
+            if missing > 0:
+                # Create missing rows for this sub_sector
+                padding = pd.DataFrame({
+                    'symbol': [np.nan]*missing,
+                    'sub_sector': [sector]*missing,
+                    'close': [np.nan]*missing,
+                    'mcap_change_value': [np.nan]*missing,
+                    'pe_ttm': [np.nan]*missing,
+                    'total_market_cap': [np.nan]*missing
+                })
+                # Append padding rows right after this group
+                result_rows.append(padding)
+
+        result = pd.concat(result_rows, ignore_index=True)
+    
+    return result
     
 def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_changes,sectors_changes,top_3_comp_sectors,top_volume,top_value,df_ipo,stock_split,df_div,ca_comp):
     # Register Inter font
@@ -1769,7 +1805,6 @@ def main():
         ROUND((mcap_summary::jsonb->'mcap_change'->>'1y')::numeric * 100, 2) AS mcap_change_1y,
         ROUND((mcap_summary::jsonb->'mcap_change'->>'ytd')::numeric * 100, 2) AS mcap_change_ytd
         FROM idx_sector_reports
-        where sub_sector <> 'Alternative Energy'
         order by abs((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric * 100) desc
         limit 3;
         """, cur)
@@ -1852,7 +1887,6 @@ daily_change AS (
         WHERE sub_sector IN (
             SELECT sub_sector 
             FROM idx_sector_reports
-            where sub_sector <> 'Alternative Energy'
             ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric) DESC
             LIMIT 3
         )
@@ -1867,7 +1901,6 @@ sub_sec_rank AS (
             ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric) DESC
         ) AS rank_sub_sec
     FROM idx_sector_reports
-    where sub_sector <> 'Alternative Energy'
     LIMIT 3
 )
 SELECT 
@@ -1884,6 +1917,8 @@ LEFT JOIN sub_sec_rank ssr ON daily_change.sub_sector = ssr.sub_sector
 ORDER BY ssr.rank_sub_sec, daily_change.rn
         """, cur)
     
+    top_3_comp_sectors = top_3comp_bysec_process(top_3_comp_sectors)
+
     ## Top Volume
     top_volume = fetch_query("""
         SELECT symbol, sum(volume) as total_volume
