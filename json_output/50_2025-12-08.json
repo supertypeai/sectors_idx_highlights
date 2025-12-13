@@ -1,0 +1,470 @@
+{
+    "market_cap_history": [
+        {
+            "date": "2025-12-08T00:00:00",
+            "market_cap": 1.6001475819124196e+16,
+            "pct_change": "null",
+            "market_cap_ffill": 1.6001475819124196e+16
+        },
+        {
+            "date": "2025-12-09T00:00:00",
+            "market_cap": 1.5906244426843052e+16,
+            "pct_change": -0.6,
+            "market_cap_ffill": 1.5906244426843052e+16
+        },
+        {
+            "date": "2025-12-10T00:00:00",
+            "market_cap": 1.5991324656426268e+16,
+            "pct_change": 0.53,
+            "market_cap_ffill": 1.5991324656426268e+16
+        },
+        {
+            "date": "2025-12-11T00:00:00",
+            "market_cap": 1.5823069421834868e+16,
+            "pct_change": -1.05,
+            "market_cap_ffill": 1.5823069421834868e+16
+        },
+        {
+            "date": "2025-12-12T00:00:00",
+            "market_cap": 1.5878543078894164e+16,
+            "pct_change": 0.35,
+            "market_cap_ffill": 1.5878543078894164e+16
+        }
+    ],
+    "weekly_market_cap_changes": {
+        "mcap_start": 1.6001475819124196e+16,
+        "mcap_end": 1.5878543078894164e+16
+    },
+    "top_gainers_losers": [
+        {
+            "symbol": "BUMI.JK",
+            "mcap_start": 93576518801136.0,
+            "mcap_end": 136651424281024.0
+        },
+        {
+            "symbol": "DEWA.JK",
+            "mcap_start": 18634844883752.0,
+            "mcap_end": 24615897717620.0
+        },
+        {
+            "symbol": "BNBR.JK",
+            "mcap_start": 14046763433229.0,
+            "mcap_end": 18382184245954.0
+        },
+        {
+            "symbol": "EMAS.JK",
+            "mcap_start": 61323081838250.0,
+            "mcap_end": 79606744761000.0
+        },
+        {
+            "symbol": "BRMS.JK",
+            "mcap_start": 137530519127860.0,
+            "mcap_end": 174394369615740.0
+        },
+        {
+            "symbol": "FPNI.JK",
+            "mcap_start": 7681651320000.0,
+            "mcap_end": 5510749860000.0
+        },
+        {
+            "symbol": "POLU.JK",
+            "mcap_start": 19275000000000.0,
+            "mcap_end": 15075000000000.0
+        },
+        {
+            "symbol": "UDNG.JK",
+            "mcap_start": 8557695952080.0,
+            "mcap_end": 6895157883680.0
+        },
+        {
+            "symbol": "BKSL.JK",
+            "mcap_start": 29852184681490.0,
+            "mcap_end": 25156335405750.0
+        },
+        {
+            "symbol": "NETV.JK",
+            "mcap_start": 5873193516524.0,
+            "mcap_end": 5045983162084.0
+        }
+    ],
+    "indices_changes": [
+        {
+            "index_code": "IDXBUMN20",
+            "start_price": 378.833,
+            "end_price": 373.157
+        },
+        {
+            "index_code": "LQ45",
+            "start_price": 855.073,
+            "end_price": 848.356
+        },
+        {
+            "index_code": "JII70",
+            "start_price": 212.931,
+            "end_price": 215.582
+        }
+    ],
+    "sectors_changes": [
+        {
+            "sub_sector": "Transportation",
+            "total_market_cap": 59047234763750.0,
+            "mcap_change_1w": 133.0,
+            "mcap_change_1y": 293.27,
+            "mcap_change_ytd": 293.27
+        },
+        {
+            "sub_sector": "Tobacco",
+            "total_market_cap": 114681585348200.0,
+            "mcap_change_1w": -9.2,
+            "mcap_change_1y": 13.43,
+            "mcap_change_ytd": 13.43
+        },
+        {
+            "sub_sector": "Apparel & Luxury Goods",
+            "total_market_cap": 38952158611296.0,
+            "mcap_change_1w": -4.92,
+            "mcap_change_1y": 117.11,
+            "mcap_change_ytd": 117.11
+        }
+    ],
+    "ipo_this_week": [
+        {
+            "symbol": "RLCO.JK",
+            "company_name": "PT Abadi Lestari Indonesia Tbk",
+            "offering_end_date": "2025-12-04",
+            "listing_date": "2025-12-08",
+            "offering_price": 168,
+            "shares_offered": 625000000
+        },
+        {
+            "symbol": "SUPA.JK",
+            "company_name": "PT Super Bank Indonesia Tbk",
+            "offering_end_date": "2025-12-15",
+            "listing_date": "2025-12-17",
+            "offering_price": 635,
+            "shares_offered": 4406612300
+        }
+    ],
+    "upcoming_dividends": [
+        {
+            "symbol": "TOWR.JK",
+            "ex_date": "2025-12-10",
+            "payment_date": "2025-12-23",
+            "dividend_amount": 6.87,
+            "dividend_yield": 1.27
+        },
+        {
+            "symbol": "ARCI.JK",
+            "ex_date": "2025-12-11",
+            "payment_date": "2025-12-17",
+            "dividend_amount": 19.81,
+            "dividend_yield": 1.16
+        },
+        {
+            "symbol": "BFIN.JK",
+            "ex_date": "2025-12-11",
+            "payment_date": "2025-12-18",
+            "dividend_amount": 35.0,
+            "dividend_yield": 4.9
+        },
+        {
+            "symbol": "MSTI.JK",
+            "ex_date": "2025-12-11",
+            "payment_date": "2025-12-29",
+            "dividend_amount": 16.0,
+            "dividend_yield": 1.16
+        },
+        {
+            "symbol": "UNVR.JK",
+            "ex_date": "2025-12-15",
+            "payment_date": "2025-12-30",
+            "dividend_amount": 87.0,
+            "dividend_yield": 3.31
+        }
+    ],
+    "stock_split_upcoming": [],
+    "corporate_action_compilation": [
+        {
+            "date": "2025-12-08",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-12-09",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2025-12-10",
+            "ipo": 0,
+            "div": 1,
+            "split": 0,
+            "total": 1
+        },
+        {
+            "date": "2025-12-11",
+            "ipo": 0,
+            "div": 3,
+            "split": 0,
+            "total": 3
+        },
+        {
+            "date": "2025-12-12",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        }
+    ],
+    "company_tags": {
+        "52-w-high": [
+            "BRMS.JK",
+            "BUMI.JK",
+            "COIN.JK",
+            "EMAS.JK",
+            "EXCL.JK",
+            "IMPC.JK",
+            "MORA.JK",
+            "PTRO.JK"
+        ],
+        "52-w-low": [
+            "ICBP.JK"
+        ],
+        "90-d-high": [
+            "BRMS.JK",
+            "BUMI.JK",
+            "COIN.JK",
+            "EMAS.JK",
+            "EXCL.JK",
+            "GOTO.JK",
+            "IMPC.JK",
+            "ISAT.JK",
+            "MORA.JK",
+            "PTRO.JK"
+        ],
+        "90-d-low": [
+            "AMMN.JK",
+            "BRIS.JK",
+            "CPIN.JK",
+            "ICBP.JK",
+            "INDF.JK",
+            "MLPT.JK",
+            "NCKL.JK"
+        ],
+        "all-time-high": [
+            "BRMS.JK",
+            "COIN.JK",
+            "EMAS.JK",
+            "IMPC.JK",
+            "MORA.JK",
+            "PTRO.JK"
+        ],
+        "dividend-increase-5y": [
+            "ANTM.JK"
+        ],
+        "dividend-yield-ttm-above-5-percent": [
+            "ASII.JK",
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "EXCL.JK",
+            "HMSP.JK",
+            "TLKM.JK",
+            "UNTR.JK"
+        ],
+        "esg-under-25": [
+            "BBCA.JK",
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "EMTK.JK",
+            "GOTO.JK",
+            "TPIA.JK",
+            "UNVR.JK"
+        ],
+        "insider-1-month-buy": [
+            "ANTM.JK",
+            "BUMI.JK",
+            "CUAN.JK",
+            "IMPC.JK",
+            "ISAT.JK",
+            "TPIA.JK"
+        ],
+        "insider-1-month-sell": [
+            "AMMN.JK",
+            "BUMI.JK",
+            "IMPC.JK",
+            "MORA.JK"
+        ],
+        "invested-by-danantara": [
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "TLKM.JK"
+        ],
+        "last-volume-above-10d-volume-average": [
+            "AMMN.JK",
+            "ANTM.JK",
+            "BBCA.JK",
+            "BMRI.JK",
+            "BNLI.JK",
+            "BREN.JK",
+            "BRIS.JK",
+            "BRMS.JK",
+            "BUMI.JK",
+            "DSSA.JK",
+            "EMAS.JK",
+            "GOTO.JK",
+            "HMSP.JK",
+            "MLPT.JK",
+            "MORA.JK",
+            "MPRO.JK",
+            "NCKL.JK"
+        ],
+        "public-float-over-50": [
+            "GOTO.JK"
+        ],
+        "public-float-under-25": [
+            "ADMR.JK",
+            "AMMN.JK",
+            "BELI.JK",
+            "BNLI.JK",
+            "BREN.JK",
+            "BRIS.JK",
+            "BYAN.JK",
+            "CDIA.JK",
+            "CUAN.JK",
+            "DCII.JK",
+            "DNET.JK",
+            "DSSA.JK",
+            "HMSP.JK",
+            "ICBP.JK",
+            "IMPC.JK",
+            "ISAT.JK",
+            "MLPT.JK",
+            "MORA.JK",
+            "MPRO.JK",
+            "NCKL.JK",
+            "PANI.JK",
+            "PGUN.JK",
+            "RISE.JK",
+            "SRAJ.JK",
+            "TPIA.JK",
+            "UNVR.JK"
+        ],
+        "single-entity-holding-70": [
+            "ADMR.JK",
+            "BELI.JK",
+            "CUAN.JK",
+            "HMSP.JK",
+            "ICBP.JK",
+            "MLPT.JK",
+            "NCKL.JK",
+            "PANI.JK",
+            "RISE.JK",
+            "UNVR.JK"
+        ],
+        "top-20-institution-buying": [
+            "AMMN.JK",
+            "AMRT.JK",
+            "ANTM.JK",
+            "ASII.JK",
+            "BBNI.JK",
+            "BREN.JK",
+            "BRIS.JK",
+            "BRMS.JK",
+            "CPIN.JK",
+            "CUAN.JK",
+            "DSSA.JK",
+            "GOTO.JK",
+            "PTRO.JK",
+            "TPIA.JK",
+            "UNTR.JK"
+        ],
+        "top-20-institution-selling": [
+            "BBCA.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "BRPT.JK",
+            "HMSP.JK",
+            "ICBP.JK",
+            "INDF.JK",
+            "TLKM.JK",
+            "UNVR.JK"
+        ],
+        "top-3-nipe-per-sectors": [
+            "AMMN.JK",
+            "BUMI.JK",
+            "DCII.JK",
+            "DNET.JK",
+            "SMMA.JK",
+            "UNTR.JK"
+        ],
+        "top-30-yoy-earning-growth": [
+            "CUAN.JK"
+        ],
+        "top-30-yoy-revenue-growth": [
+            "CUAN.JK"
+        ],
+        "top-90d-transaction-value": [
+            "AMMN.JK",
+            "ANTM.JK",
+            "ASII.JK",
+            "BBCA.JK",
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "BREN.JK",
+            "BRMS.JK",
+            "BRPT.JK",
+            "BUMI.JK",
+            "CDIA.JK",
+            "COIN.JK",
+            "CUAN.JK",
+            "DSSA.JK",
+            "EMAS.JK",
+            "EMTK.JK",
+            "GOTO.JK",
+            "MBMA.JK",
+            "PTRO.JK",
+            "TLKM.JK"
+        ],
+        "top-90d-transaction-volume": [
+            "BBRI.JK",
+            "BRMS.JK",
+            "BUMI.JK",
+            "CDIA.JK",
+            "CUAN.JK",
+            "GOTO.JK",
+            "MBMA.JK"
+        ],
+        "top-ten-1m-leaders": [
+            "MORA.JK"
+        ],
+        "top-ten-1y-leaders": [
+            "MORA.JK",
+            "PGUN.JK"
+        ],
+        "upcoming-dividend": [
+            "UNVR.JK"
+        ],
+        "ytd-high": [
+            "BRMS.JK",
+            "BUMI.JK",
+            "COIN.JK",
+            "EMAS.JK",
+            "EXCL.JK",
+            "IMPC.JK",
+            "ISAT.JK",
+            "MORA.JK",
+            "PTRO.JK"
+        ],
+        "ytd-low": [
+            "ICBP.JK"
+        ]
+    }
+}
