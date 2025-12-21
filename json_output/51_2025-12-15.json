@@ -155,13 +155,6 @@
         {
             "symbol": "KKGI.JK",
             "ex_date": "2025-12-23",
-            "payment_date": "2026-01-15",
-            "dividend_amount": 17.0,
-            "dividend_yield": 4.86
-        },
-        {
-            "symbol": "KKGI.JK",
-            "ex_date": "2025-12-23",
             "payment_date": "2026-01-14",
             "dividend_amount": 17.0,
             "dividend_yield": 4.86
@@ -417,7 +410,6 @@
             "BRMS.JK",
             "BUMI.JK",
             "CDIA.JK",
-            "CUAN.JK",
             "GOTO.JK",
             "MBMA.JK"
         ],
