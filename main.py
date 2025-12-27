@@ -1804,7 +1804,7 @@ def main():
         ROUND((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric * 100, 2) AS mcap_change_1w,
         ROUND((mcap_summary::jsonb->'mcap_change'->>'1y')::numeric * 100, 2) AS mcap_change_1y,
         ROUND((mcap_summary::jsonb->'mcap_change'->>'ytd')::numeric * 100, 2) AS mcap_change_ytd
-        FROM idx_sector_reports
+        FROM idx_sector_report
         order by abs((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric * 100) desc
         limit 3;
         """, cur)
@@ -1886,7 +1886,7 @@ daily_change AS (
         FROM daily_data
         WHERE sub_sector IN (
             SELECT sub_sector 
-            FROM idx_sector_reports
+            FROM idx_sector_report
             ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric) DESC
             LIMIT 3
         )
@@ -1900,7 +1900,7 @@ sub_sec_rank AS (
         RANK() OVER (
             ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric) DESC
         ) AS rank_sub_sec
-    FROM idx_sector_reports
+    FROM idx_sector_report
     LIMIT 3
 )
 SELECT 
@@ -1912,7 +1912,7 @@ SELECT
     isr.total_market_cap
 FROM daily_change
 LEFT JOIN idx_calc_metrics_daily idmd ON daily_change.symbol = idmd.symbol
-LEFT JOIN idx_sector_reports isr ON daily_change.sub_sector = isr.sub_sector
+LEFT JOIN idx_sector_report isr ON daily_change.sub_sector = isr.sub_sector
 LEFT JOIN sub_sec_rank ssr ON daily_change.sub_sector = ssr.sub_sector
 ORDER BY ssr.rank_sub_sec, daily_change.rn
         """, cur)
