@@ -2053,7 +2053,7 @@ ORDER BY ssr.rank_sub_sec, daily_change.rn
         "company_tags": tags['symbols'].to_dict()
     }
     
-    output_folder = "json_output"
+    output_folder = "json_output/2026"
 
     # Scan existing files to find the latest number
     existing_files = [f for f in os.listdir(output_folder) if f.endswith(".json")]
@@ -2067,7 +2067,7 @@ ORDER BY ssr.rank_sub_sec, daily_change.rn
             continue  # Skip files that don't follow the pattern
 
     # Determine next number
-    next_number = max(numbers) + 1 if numbers else 27
+    next_number = max(numbers) + 1 if numbers else 1
 
     # Today's date
     today = datetime.today()
