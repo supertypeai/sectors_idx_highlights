@@ -1,0 +1,549 @@
+{
+    "market_cap_history": [
+        {
+            "date": "2026-01-05T00:00:00",
+            "market_cap": 1.6161181626488692e+16,
+            "pct_change": "null",
+            "market_cap_ffill": 1.6161181626488692e+16
+        },
+        {
+            "date": "2026-01-06T00:00:00",
+            "market_cap": 1.6303252242906156e+16,
+            "pct_change": 0.88,
+            "market_cap_ffill": 1.6303252242906156e+16
+        },
+        {
+            "date": "2026-01-07T00:00:00",
+            "market_cap": 1.6318327678203788e+16,
+            "pct_change": 0.09,
+            "market_cap_ffill": 1.6318327678203788e+16
+        },
+        {
+            "date": "2026-01-08T00:00:00",
+            "market_cap": 1.6299314613240778e+16,
+            "pct_change": -0.12,
+            "market_cap_ffill": 1.6299314613240778e+16
+        },
+        {
+            "date": "2026-01-09T00:00:00",
+            "market_cap": 1.6297424637155264e+16,
+            "pct_change": -0.01,
+            "market_cap_ffill": 1.6297424637155264e+16
+        }
+    ],
+    "weekly_market_cap_changes": {
+        "mcap_start": 1.6161181626488692e+16,
+        "mcap_end": 1.6297424637155264e+16
+    },
+    "top_gainers_losers": [
+        {
+            "symbol": "RLCO.JK",
+            "mcap_start": 6656250000000.0,
+            "mcap_end": 12531250000000.0
+        },
+        {
+            "symbol": "BSIM.JK",
+            "mcap_start": 17663719267010.0,
+            "mcap_end": 29569651590630.0
+        },
+        {
+            "symbol": "BIPI.JK",
+            "mcap_start": 7900064417708.0,
+            "mcap_end": 12869459777234.0
+        },
+        {
+            "symbol": "ARKO.JK",
+            "mcap_start": 22549411500000.0,
+            "mcap_end": 31481321250000.0
+        },
+        {
+            "symbol": "BNBR.JK",
+            "mcap_start": 26359358541368.0,
+            "mcap_end": 35377033831836.0
+        },
+        {
+            "symbol": "VICI.JK",
+            "mcap_start": 7110480000000.0,
+            "mcap_end": 5064540000000.0
+        },
+        {
+            "symbol": "COIN.JK",
+            "mcap_start": 59705882544000.0,
+            "mcap_end": 48970588392000.0
+        },
+        {
+            "symbol": "CPRO.JK",
+            "mcap_start": 5123224919682.0,
+            "mcap_end": 4289211560664.0
+        },
+        {
+            "symbol": "TMAS.JK",
+            "mcap_start": 10668630500000.0,
+            "mcap_end": 9356446000000.0
+        },
+        {
+            "symbol": "MBSS.JK",
+            "mcap_start": 6457598297910.0,
+            "mcap_end": 5670086310360.0
+        }
+    ],
+    "indices_changes": [
+        {
+            "index_code": "IDXBUMN20",
+            "start_price": 383.334,
+            "end_price": 380.342
+        },
+        {
+            "index_code": "LQ45",
+            "start_price": 859.775,
+            "end_price": 868.025
+        },
+        {
+            "index_code": "JII70",
+            "start_price": 219.418,
+            "end_price": 220.76
+        }
+    ],
+    "sectors_changes": [
+        {
+            "sub_sector": "Consumer Services",
+            "total_market_cap": 141878859353163.0,
+            "mcap_change_1w": 15.01,
+            "mcap_change_1y": 28.66,
+            "mcap_change_ytd": 19.86
+        },
+        {
+            "sub_sector": "Household Goods",
+            "total_market_cap": 12450529109670.0,
+            "mcap_change_1w": 12.94,
+            "mcap_change_1y": 107.42,
+            "mcap_change_ytd": 13.2
+        },
+        {
+            "sub_sector": "Insurance",
+            "total_market_cap": 56315235233877.0,
+            "mcap_change_1w": 12.07,
+            "mcap_change_1y": 25.81,
+            "mcap_change_ytd": 14.67
+        }
+    ],
+    "ipo_this_week": [],
+    "upcoming_dividends": [
+        {
+            "symbol": "BSSR.JK",
+            "ex_date": "2026-01-05",
+            "payment_date": "2026-01-15",
+            "dividend_amount": 127.414,
+            "dividend_yield": 3.27
+        },
+        {
+            "symbol": "IPCM.JK",
+            "ex_date": "2026-01-05",
+            "payment_date": "2026-01-15",
+            "dividend_amount": 4.4,
+            "dividend_yield": 1.26
+        },
+        {
+            "symbol": "BMRI.JK",
+            "ex_date": "2026-01-06",
+            "payment_date": "2026-01-14",
+            "dividend_amount": 100.0,
+            "dividend_yield": 2.1
+        },
+        {
+            "symbol": "EAST.JK",
+            "ex_date": "2026-01-07",
+            "payment_date": "2026-01-22",
+            "dividend_amount": 5.6,
+            "dividend_yield": 5.89
+        },
+        {
+            "symbol": "SOHO.JK",
+            "ex_date": "2026-01-07",
+            "payment_date": "2026-01-13",
+            "dividend_amount": 33.1,
+            "dividend_yield": 2.01
+        },
+        {
+            "symbol": "GDST.JK",
+            "ex_date": "2026-01-08",
+            "payment_date": "2026-01-23",
+            "dividend_amount": 2.5,
+            "dividend_yield": 1.87
+        },
+        {
+            "symbol": "SOHO.JK",
+            "ex_date": "2026-01-08",
+            "payment_date": "2026-01-22",
+            "dividend_amount": 33.1,
+            "dividend_yield": 2.01
+        },
+        {
+            "symbol": "RAJA.JK",
+            "ex_date": "2026-01-09",
+            "payment_date": "2026-01-28",
+            "dividend_amount": 25.0,
+            "dividend_yield": 0.31
+        },
+        {
+            "symbol": "RDTX.JK",
+            "ex_date": "2026-01-09",
+            "payment_date": "2026-01-21",
+            "dividend_amount": 200.0,
+            "dividend_yield": 1.54
+        },
+        {
+            "symbol": "CDIA.JK",
+            "ex_date": "2026-01-12",
+            "payment_date": "2026-01-29",
+            "dividend_amount": 1.34,
+            "dividend_yield": 0.08
+        },
+        {
+            "symbol": "PNGO.JK",
+            "ex_date": "2026-01-15",
+            "payment_date": "2026-01-27",
+            "dividend_amount": 90.0,
+            "dividend_yield": 2.47
+        }
+    ],
+    "stock_split_upcoming": [],
+    "corporate_action_compilation": [
+        {
+            "date": "2026-01-05",
+            "ipo": 0,
+            "div": 2,
+            "split": 0,
+            "total": 2
+        },
+        {
+            "date": "2026-01-06",
+            "ipo": 0,
+            "div": 1,
+            "split": 0,
+            "total": 1
+        },
+        {
+            "date": "2026-01-07",
+            "ipo": 0,
+            "div": 2,
+            "split": 0,
+            "total": 2
+        },
+        {
+            "date": "2026-01-08",
+            "ipo": 0,
+            "div": 2,
+            "split": 0,
+            "total": 2
+        },
+        {
+            "date": "2026-01-09",
+            "ipo": 0,
+            "div": 2,
+            "split": 0,
+            "total": 2
+        }
+    ],
+    "company_tags": {
+        "52-w-high": [
+            "ADMR.JK",
+            "ASII.JK",
+            "BUMI.JK",
+            "EXCL.JK",
+            "IMPC.JK",
+            "INCO.JK",
+            "NCKL.JK",
+            "PTRO.JK",
+            "UNTR.JK"
+        ],
+        "90-d-high": [
+            "ADMR.JK",
+            "ADRO.JK",
+            "ANTM.JK",
+            "ASII.JK",
+            "BUMI.JK",
+            "EXCL.JK",
+            "IMPC.JK",
+            "INCO.JK",
+            "MDKA.JK",
+            "NCKL.JK",
+            "PTRO.JK",
+            "SMMA.JK",
+            "UNTR.JK"
+        ],
+        "90-d-low": [
+            "BRIS.JK",
+            "BRPT.JK",
+            "PANI.JK",
+            "TPIA.JK"
+        ],
+        "all-time-high": [
+            "IMPC.JK",
+            "NCKL.JK",
+            "PTRO.JK"
+        ],
+        "dividend-increase-5y": [
+            "AMRT.JK",
+            "ANTM.JK"
+        ],
+        "dividend-yield-ttm-above-5-percent": [
+            "ADRO.JK",
+            "ASII.JK",
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "EXCL.JK",
+            "HMSP.JK",
+            "TLKM.JK",
+            "UNTR.JK",
+            "UNVR.JK"
+        ],
+        "esg-under-25": [
+            "BBCA.JK",
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "EMTK.JK",
+            "GOTO.JK",
+            "TPIA.JK",
+            "UNVR.JK"
+        ],
+        "insider-1-month-buy": [
+            "BELI.JK",
+            "BUMI.JK",
+            "BYAN.JK",
+            "EXCL.JK",
+            "PANI.JK"
+        ],
+        "insider-1-month-sell": [
+            "AMMN.JK",
+            "ANTM.JK",
+            "BELI.JK",
+            "BUMI.JK",
+            "IMPC.JK",
+            "NCKL.JK"
+        ],
+        "invested-by-danantara": [
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "TLKM.JK"
+        ],
+        "last-volume-above-10d-volume-average": [
+            "ADRO.JK",
+            "AMRT.JK",
+            "ANTM.JK",
+            "ASII.JK",
+            "BELI.JK",
+            "BRIS.JK",
+            "BUMI.JK",
+            "DSSA.JK",
+            "EXCL.JK",
+            "IMPC.JK",
+            "PANI.JK",
+            "PTRO.JK",
+            "RISE.JK",
+            "SMMA.JK",
+            "TLKM.JK",
+            "TPIA.JK",
+            "UNTR.JK",
+            "UNVR.JK"
+        ],
+        "public-float-over-50": [
+            "BRMS.JK",
+            "GOTO.JK",
+            "MDKA.JK"
+        ],
+        "public-float-under-25": [
+            "ADMR.JK",
+            "AMMN.JK",
+            "BELI.JK",
+            "BNLI.JK",
+            "BREN.JK",
+            "BRIS.JK",
+            "BYAN.JK",
+            "CDIA.JK",
+            "CUAN.JK",
+            "DCII.JK",
+            "DNET.JK",
+            "DSSA.JK",
+            "HMSP.JK",
+            "ICBP.JK",
+            "IMPC.JK",
+            "INCO.JK",
+            "ISAT.JK",
+            "MLPT.JK",
+            "MORA.JK",
+            "MPRO.JK",
+            "NCKL.JK",
+            "PANI.JK",
+            "RISE.JK",
+            "SRAJ.JK",
+            "TPIA.JK",
+            "UNVR.JK"
+        ],
+        "single-entity-holding-70": [
+            "ADMR.JK",
+            "BELI.JK",
+            "CUAN.JK",
+            "HMSP.JK",
+            "ICBP.JK",
+            "MLPT.JK",
+            "NCKL.JK",
+            "PANI.JK",
+            "RISE.JK",
+            "UNVR.JK"
+        ],
+        "top-20-institution-buying": [
+            "AMMN.JK",
+            "AMRT.JK",
+            "ANTM.JK",
+            "ASII.JK",
+            "BBNI.JK",
+            "BREN.JK",
+            "BRIS.JK",
+            "BRMS.JK",
+            "CPIN.JK",
+            "CUAN.JK",
+            "DSSA.JK",
+            "GOTO.JK",
+            "PTRO.JK",
+            "TPIA.JK",
+            "UNTR.JK"
+        ],
+        "top-20-institution-selling": [
+            "ADRO.JK",
+            "BBCA.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "BRPT.JK",
+            "HMSP.JK",
+            "ICBP.JK",
+            "MDKA.JK",
+            "TLKM.JK",
+            "UNVR.JK"
+        ],
+        "top-3-nipe-per-sectors": [
+            "AMMN.JK",
+            "BUMI.JK",
+            "DCII.JK",
+            "DNET.JK",
+            "SMMA.JK",
+            "UNTR.JK"
+        ],
+        "top-30-yoy-earning-growth": [
+            "CUAN.JK",
+            "MBMA.JK"
+        ],
+        "top-30-yoy-revenue-growth": [
+            "CUAN.JK",
+            "MBMA.JK"
+        ],
+        "top-90d-transaction-value": [
+            "ADRO.JK",
+            "AMMN.JK",
+            "ANTM.JK",
+            "ASII.JK",
+            "BBCA.JK",
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "BREN.JK",
+            "BRMS.JK",
+            "BRPT.JK",
+            "BUMI.JK",
+            "CDIA.JK",
+            "CUAN.JK",
+            "DSSA.JK",
+            "EMTK.JK",
+            "GOTO.JK",
+            "PTRO.JK",
+            "TLKM.JK"
+        ],
+        "top-90d-transaction-volume": [
+            "BBRI.JK",
+            "BRMS.JK",
+            "BUMI.JK",
+            "CDIA.JK",
+            "GOTO.JK",
+            "MBMA.JK"
+        ],
+        "top-ten-1y-leaders": [
+            "MORA.JK"
+        ],
+        "upcoming-dividend": [
+            "CDIA.JK"
+        ],
+        "ytd-high": [
+            "ADMR.JK",
+            "ADRO.JK",
+            "AMMN.JK",
+            "AMRT.JK",
+            "ANTM.JK",
+            "ASII.JK",
+            "BBCA.JK",
+            "BBRI.JK",
+            "BNLI.JK",
+            "BRMS.JK",
+            "BUMI.JK",
+            "BYAN.JK",
+            "CPIN.JK",
+            "DCII.JK",
+            "DNET.JK",
+            "DSSA.JK",
+            "EMAS.JK",
+            "EMTK.JK",
+            "EXCL.JK",
+            "GOTO.JK",
+            "HMSP.JK",
+            "IMPC.JK",
+            "INCO.JK",
+            "MBMA.JK",
+            "MDKA.JK",
+            "MLPT.JK",
+            "MORA.JK",
+            "MPRO.JK",
+            "NCKL.JK",
+            "PTRO.JK",
+            "RISE.JK",
+            "SMMA.JK",
+            "SRAJ.JK",
+            "TLKM.JK",
+            "UNTR.JK",
+            "UNVR.JK"
+        ],
+        "ytd-low": [
+            "AMRT.JK",
+            "BBNI.JK",
+            "BBRI.JK",
+            "BELI.JK",
+            "BMRI.JK",
+            "BNLI.JK",
+            "BREN.JK",
+            "BRIS.JK",
+            "BRPT.JK",
+            "CDIA.JK",
+            "CPIN.JK",
+            "CUAN.JK",
+            "DNET.JK",
+            "DSSA.JK",
+            "EMAS.JK",
+            "EMTK.JK",
+            "EXCL.JK",
+            "ICBP.JK",
+            "IMPC.JK",
+            "INCO.JK",
+            "ISAT.JK",
+            "MLPT.JK",
+            "MORA.JK",
+            "NCKL.JK",
+            "PANI.JK",
+            "RISE.JK",
+            "SMMA.JK",
+            "SRAJ.JK",
+            "TPIA.JK",
+            "UNVR.JK"
+        ]
+    }
+}
