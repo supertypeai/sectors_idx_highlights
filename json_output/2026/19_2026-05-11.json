@@ -1,0 +1,618 @@
+{
+    "market_cap_history": [
+        {
+            "date": "2026-05-11T00:00:00",
+            "market_cap": 1.228003007966483e+16,
+            "pct_change": "null",
+            "market_cap_ffill": 1.228003007966483e+16
+        },
+        {
+            "date": "2026-05-12T00:00:00",
+            "market_cap": 1.214277342732138e+16,
+            "pct_change": -1.12,
+            "market_cap_ffill": 1.214277342732138e+16
+        },
+        {
+            "date": "2026-05-13T00:00:00",
+            "market_cap": 1.1821690407165346e+16,
+            "pct_change": -2.64,
+            "market_cap_ffill": 1.1821690407165346e+16
+        },
+        {
+            "date": "2026-05-14T00:00:00",
+            "market_cap": "null",
+            "pct_change": 0.0,
+            "market_cap_ffill": "null"
+        },
+        {
+            "date": "2026-05-15T00:00:00",
+            "market_cap": "null",
+            "pct_change": 0.0,
+            "market_cap_ffill": "null"
+        }
+    ],
+    "weekly_market_cap_changes": {
+        "mcap_start": 1.228003007966483e+16,
+        "mcap_end": 1.1821690407165346e+16
+    },
+    "top_gainers_losers": [
+        {
+            "symbol": "ELPI.JK",
+            "mcap_start": 9672660000000.0,
+            "mcap_end": 14824000000000.0
+        },
+        {
+            "symbol": "EURO.JK",
+            "mcap_start": 5938765577240.0,
+            "mcap_end": 7162202262680.0
+        },
+        {
+            "symbol": "PACK.JK",
+            "mcap_start": 8934288396708.0,
+            "mcap_end": 10099633543896.0
+        },
+        {
+            "symbol": "APIC.JK",
+            "mcap_start": 18708438445920.0,
+            "mcap_end": 20649880171440.0
+        },
+        {
+            "symbol": "ISAT.JK",
+            "mcap_start": 70306767886260.0,
+            "mcap_end": 76434421968090.0
+        },
+        {
+            "symbol": "SHIP.JK",
+            "mcap_start": 8077776300000.0,
+            "mcap_end": 5929142200000.0
+        },
+        {
+            "symbol": "MORA.JK",
+            "mcap_start": 429967734624000.0,
+            "mcap_end": 328447575060000.0
+        },
+        {
+            "symbol": "SGRO.JK",
+            "mcap_start": 7110812020000.0,
+            "mcap_end": 5710473080000.0
+        },
+        {
+            "symbol": "CUAN.JK",
+            "mcap_start": 115791467000000.0,
+            "mcap_end": 95556065000000.0
+        },
+        {
+            "symbol": "BREN.JK",
+            "mcap_start": 507049773800000.0,
+            "mcap_end": 428115904000000.0
+        }
+    ],
+    "indices_changes": [
+        {
+            "index_code": "IDXBUMN20",
+            "start_price": 347.16,
+            "end_price": 343.505
+        },
+        {
+            "index_code": "LQ45",
+            "start_price": 668.634,
+            "end_price": 657.88
+        },
+        {
+            "index_code": "JII70",
+            "start_price": 173.979,
+            "end_price": 170.661
+        }
+    ],
+    "sectors_changes": [
+        {
+            "sub_sector": "Utilities",
+            "total_market_cap": 638532794883458.0,
+            "mcap_change_1w": -27.15,
+            "mcap_change_1y": -32.35,
+            "mcap_change_ytd": -59.78
+        },
+        {
+            "sub_sector": "Basic Materials",
+            "total_market_cap": 1789098213792312.0,
+            "mcap_change_1w": -16.93,
+            "mcap_change_1y": -12.38,
+            "mcap_change_ytd": -23.81
+        },
+        {
+            "sub_sector": "Media & Entertainment",
+            "total_market_cap": 104491555441309.0,
+            "mcap_change_1w": -14.7,
+            "mcap_change_1y": 17.7,
+            "mcap_change_ytd": -56.07
+        }
+    ],
+    "ipo_this_week": [],
+    "upcoming_dividends": [
+        {
+            "symbol": "ABMM.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-05-26",
+            "dividend_amount": 97.0,
+            "dividend_yield": 3.51
+        },
+        {
+            "symbol": "TUGU.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-06-03",
+            "dividend_amount": 99.9918,
+            "dividend_yield": 8.37
+        },
+        {
+            "symbol": "SMSM.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-05-26",
+            "dividend_amount": 25.0,
+            "dividend_yield": 1.34
+        },
+        {
+            "symbol": "PZZA.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-06-03",
+            "dividend_amount": 1.66,
+            "dividend_yield": 0.86
+        },
+        {
+            "symbol": "ZYRX.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-05-29",
+            "dividend_amount": 4.9,
+            "dividend_yield": 3.5
+        },
+        {
+            "symbol": "MLPT.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-06-03",
+            "dividend_amount": 80.0,
+            "dividend_yield": 0.4
+        },
+        {
+            "symbol": "LPGI.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-05-29",
+            "dividend_amount": 10.0,
+            "dividend_yield": 1.44
+        },
+        {
+            "symbol": "JPFA.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-05-19",
+            "dividend_amount": 140.0,
+            "dividend_yield": 5.51
+        },
+        {
+            "symbol": "ZYRX.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-06-03",
+            "dividend_amount": 4.9,
+            "dividend_yield": 3.5
+        },
+        {
+            "symbol": "BMRI.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-05-25",
+            "dividend_amount": 376.957,
+            "dividend_yield": 8.98
+        },
+        {
+            "symbol": "ABMM.JK",
+            "ex_date": "2026-05-11",
+            "payment_date": "2026-05-28",
+            "dividend_amount": 97.0,
+            "dividend_yield": 3.51
+        },
+        {
+            "symbol": "SSMS.JK",
+            "ex_date": "2026-05-12",
+            "payment_date": "2026-06-04",
+            "dividend_amount": 83.99,
+            "dividend_yield": 6.91
+        },
+        {
+            "symbol": "MSJA.JK",
+            "ex_date": "2026-05-12",
+            "payment_date": "2026-06-04",
+            "dividend_amount": 15.0,
+            "dividend_yield": 3.59
+        },
+        {
+            "symbol": "NICL.JK",
+            "ex_date": "2026-05-13",
+            "payment_date": "2026-05-26",
+            "dividend_amount": 6.0,
+            "dividend_yield": 0.79
+        },
+        {
+            "symbol": "BRIS.JK",
+            "ex_date": "2026-05-18",
+            "payment_date": "2026-06-05",
+            "dividend_amount": 32.8101,
+            "dividend_yield": 1.79
+        },
+        {
+            "symbol": "ISAT.JK",
+            "ex_date": "2026-05-18",
+            "payment_date": "2026-06-05",
+            "dividend_amount": 111.0,
+            "dividend_yield": 4.68
+        },
+        {
+            "symbol": "BJTM.JK",
+            "ex_date": "2026-05-19",
+            "payment_date": "2026-06-05",
+            "dividend_amount": 56.62,
+            "dividend_yield": 9.68
+        },
+        {
+            "symbol": "TOTL.JK",
+            "ex_date": "2026-05-19",
+            "payment_date": "2026-06-05",
+            "dividend_amount": 110.0,
+            "dividend_yield": 8.94
+        },
+        {
+            "symbol": "SHIP.JK",
+            "ex_date": "2026-05-19",
+            "payment_date": "2026-05-26",
+            "dividend_amount": 35.0,
+            "dividend_yield": 1.61
+        },
+        {
+            "symbol": "YUPI.JK",
+            "ex_date": "2026-05-19",
+            "payment_date": "2026-05-29",
+            "dividend_amount": 16.5742,
+            "dividend_yield": 1.08
+        },
+        {
+            "symbol": "RATU.JK",
+            "ex_date": "2026-05-20",
+            "payment_date": "2026-06-10",
+            "dividend_amount": 45.0,
+            "dividend_yield": 0.79
+        },
+        {
+            "symbol": "MARK.JK",
+            "ex_date": "2026-05-20",
+            "payment_date": "2026-06-10",
+            "dividend_amount": 90.0,
+            "dividend_yield": 10.4
+        },
+        {
+            "symbol": "LTLS.JK",
+            "ex_date": "2026-05-20",
+            "payment_date": "2026-05-29",
+            "dividend_amount": 31.0,
+            "dividend_yield": 3.8
+        },
+        {
+            "symbol": "ARCI.JK",
+            "ex_date": "2026-05-20",
+            "payment_date": "2026-06-09",
+            "dividend_amount": 20.69,
+            "dividend_yield": 1.47
+        },
+        {
+            "symbol": "BAYU.JK",
+            "ex_date": "2026-05-20",
+            "payment_date": "2026-06-10",
+            "dividend_amount": 100.0,
+            "dividend_yield": 7.46
+        },
+        {
+            "symbol": "KUAS.JK",
+            "ex_date": "2026-05-20",
+            "payment_date": "2026-06-10",
+            "dividend_amount": 1.5,
+            "dividend_yield": 1.35
+        },
+        {
+            "symbol": "WEHA.JK",
+            "ex_date": "2026-05-21",
+            "payment_date": "2026-06-11",
+            "dividend_amount": 6.0,
+            "dividend_yield": 4.69
+        },
+        {
+            "symbol": "POWR.JK",
+            "ex_date": "2026-05-21",
+            "payment_date": "2026-06-05",
+            "dividend_amount": 49.5272,
+            "dividend_yield": 6.43
+        },
+        {
+            "symbol": "PSSI.JK",
+            "ex_date": "2026-05-21",
+            "payment_date": "2026-06-11",
+            "dividend_amount": 5.0,
+            "dividend_yield": 1.49
+        },
+        {
+            "symbol": "PDES.JK",
+            "ex_date": "2026-05-21",
+            "payment_date": "2026-06-11",
+            "dividend_amount": 1.0,
+            "dividend_yield": 0.2
+        },
+        {
+            "symbol": "PBID.JK",
+            "ex_date": "2026-05-21",
+            "payment_date": "2026-06-04",
+            "dividend_amount": 53.0,
+            "dividend_yield": 9.55
+        },
+        {
+            "symbol": "PANR.JK",
+            "ex_date": "2026-05-21",
+            "payment_date": "2026-06-11",
+            "dividend_amount": 30.0,
+            "dividend_yield": 5.61
+        },
+        {
+            "symbol": "SMGR.JK",
+            "ex_date": "2026-05-21",
+            "payment_date": "2026-06-11",
+            "dividend_amount": 28.33,
+            "dividend_yield": 1.37
+        },
+        {
+            "symbol": "MCOL.JK",
+            "ex_date": "2026-05-22",
+            "payment_date": "2026-06-08",
+            "dividend_amount": 200.0,
+            "dividend_yield": 4.99
+        },
+        {
+            "symbol": "OBAT.JK",
+            "ex_date": "2026-05-22",
+            "payment_date": "2026-06-12",
+            "dividend_amount": 7.548,
+            "dividend_yield": 2.5
+        },
+        {
+            "symbol": "PLIN.JK",
+            "ex_date": "2026-05-25",
+            "payment_date": "2026-06-04",
+            "dividend_amount": 180.12,
+            "dividend_yield": 7.18
+        }
+    ],
+    "stock_split_upcoming": [],
+    "corporate_action_compilation": [
+        {
+            "date": "2026-05-11",
+            "ipo": 0,
+            "div": 11,
+            "split": 0,
+            "total": 11
+        },
+        {
+            "date": "2026-05-12",
+            "ipo": 0,
+            "div": 2,
+            "split": 0,
+            "total": 2
+        },
+        {
+            "date": "2026-05-13",
+            "ipo": 0,
+            "div": 1,
+            "split": 0,
+            "total": 1
+        },
+        {
+            "date": "2026-05-14",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        },
+        {
+            "date": "2026-05-15",
+            "ipo": 0,
+            "div": 0,
+            "split": 0,
+            "total": 0
+        }
+    ],
+    "company_tags": {
+        "52-w-low": [
+            "AMMN.JK",
+            "BREN.JK",
+            "CUAN.JK",
+            "DSSA.JK"
+        ],
+        "90-d-high": [
+            "MORA.JK",
+            "SMMA.JK"
+        ],
+        "90-d-low": [
+            "AMMN.JK",
+            "BMRI.JK",
+            "BREN.JK",
+            "CUAN.JK",
+            "DSSA.JK",
+            "MBMA.JK",
+            "MDKA.JK",
+            "SRAJ.JK",
+            "UNTR.JK"
+        ],
+        "dividend-increase-5y": [
+            "AMRT.JK",
+            "ANTM.JK",
+            "INKP.JK"
+        ],
+        "dividend-yield-ttm-above-5-percent": [
+            "AADI.JK",
+            "ADRO.JK",
+            "ASII.JK",
+            "BBCA.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "EXCL.JK",
+            "HMSP.JK",
+            "TLKM.JK",
+            "UNTR.JK",
+            "UNVR.JK"
+        ],
+        "esg-under-25": [
+            "BBCA.JK",
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "BREN.JK",
+            "GOTO.JK",
+            "INCO.JK",
+            "TLKM.JK",
+            "TPIA.JK",
+            "UNVR.JK"
+        ],
+        "insider-1-month-buy": [
+            "AMRT.JK",
+            "ASII.JK",
+            "BMRI.JK",
+            "ISAT.JK",
+            "PTRO.JK"
+        ],
+        "insider-1-month-sell": [
+            "AMMN.JK",
+            "AMRT.JK",
+            "BYAN.JK",
+            "CUAN.JK"
+        ],
+        "invested-by-danantara": [
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "TLKM.JK"
+        ],
+        "last-volume-above-10d-volume-average": [
+            "AMMN.JK",
+            "AMRT.JK",
+            "ANTM.JK",
+            "BREN.JK",
+            "BRIS.JK",
+            "BRPT.JK",
+            "CASA.JK",
+            "CPIN.JK",
+            "CUAN.JK",
+            "DSSA.JK",
+            "EXCL.JK",
+            "TPIA.JK"
+        ],
+        "public-float-over-50": [
+            "BRMS.JK",
+            "BUMI.JK",
+            "GOTO.JK",
+            "MDKA.JK",
+            "SMMA.JK"
+        ],
+        "public-float-under-25": [
+            "AADI.JK",
+            "ADMR.JK",
+            "AMMN.JK",
+            "BNLI.JK",
+            "BREN.JK",
+            "BRIS.JK",
+            "BYAN.JK",
+            "CDIA.JK",
+            "CUAN.JK",
+            "DCII.JK",
+            "DNET.JK",
+            "DSSA.JK",
+            "HMSP.JK",
+            "ICBP.JK",
+            "IMPC.JK",
+            "INCO.JK",
+            "ISAT.JK",
+            "MPRO.JK",
+            "NCKL.JK",
+            "PANI.JK",
+            "SRAJ.JK",
+            "SUPR.JK",
+            "TCPI.JK",
+            "TPIA.JK",
+            "UNVR.JK"
+        ],
+        "single-entity-holding-70": [
+            "ADMR.JK",
+            "CUAN.JK",
+            "HMSP.JK",
+            "ICBP.JK",
+            "NCKL.JK",
+            "PANI.JK",
+            "SUPR.JK",
+            "UNVR.JK"
+        ],
+        "top-3-nipe-per-sectors": [
+            "BUMI.JK",
+            "CDIA.JK",
+            "DCII.JK"
+        ],
+        "top-30-yoy-earning-growth": [
+            "PANI.JK"
+        ],
+        "top-30-yoy-revenue-growth": [
+            "PANI.JK"
+        ],
+        "top-90d-transaction-value": [
+            "AADI.JK",
+            "ADRO.JK",
+            "AMMN.JK",
+            "ANTM.JK",
+            "ASII.JK",
+            "BBCA.JK",
+            "BBNI.JK",
+            "BBRI.JK",
+            "BMRI.JK",
+            "BRMS.JK",
+            "BRPT.JK",
+            "BUMI.JK",
+            "CUAN.JK",
+            "DSSA.JK",
+            "EMAS.JK",
+            "GOTO.JK",
+            "INCO.JK",
+            "MBMA.JK",
+            "MDKA.JK",
+            "PTRO.JK",
+            "TLKM.JK"
+        ],
+        "top-90d-transaction-volume": [
+            "BBRI.JK",
+            "BRMS.JK",
+            "BRPT.JK",
+            "BUMI.JK",
+            "CUAN.JK",
+            "GOTO.JK",
+            "MBMA.JK"
+        ],
+        "top-ten-1m-laggards": [
+            "BREN.JK",
+            "CUAN.JK",
+            "DSSA.JK"
+        ],
+        "top-ten-1y-leaders": [
+            "MORA.JK"
+        ],
+        "upcoming-dividend": [
+            "BRIS.JK",
+            "ISAT.JK"
+        ],
+        "ytd-high": [
+            "SMMA.JK"
+        ],
+        "ytd-low": [
+            "AMMN.JK",
+            "BREN.JK",
+            "CUAN.JK",
+            "DSSA.JK",
+            "SRAJ.JK"
+        ]
+    }
+}
