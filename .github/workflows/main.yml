@@ -2,7 +2,7 @@ name: Generate idx highlights content for idx
 
 on:
   schedule:
-    - cron: '0 5 * * 6' # Run every saturday at 11am/12pm (Western Indonesia Time)
+    - cron: '0 1 * * 6' # Run every saturday at 11am/12pm (Western Indonesia Time)
   
   workflow_dispatch:
       
