@@ -603,7 +603,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
 
     # Top Gainers
     for i in range(0,5):
-        image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_gainers_losers['symbol'][i][0:4]}.webp").content))
+        image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp-sea/logo/{top_gainers_losers['symbol'][i][0:4]}.webp").content))
         pdf.drawImage(image, 180, height - 990 - (88*i), 50, 50,mask="auto")
 
     for i in range (0,5):
@@ -631,7 +631,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
 
     # Top Losers
     for i in range(0,5):
-        image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_gainers_losers['symbol'][i+5][0:4]}.webp").content))
+        image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp-sea/logo/{top_gainers_losers['symbol'][i+5][0:4]}.webp").content))
         pdf.drawImage(image, 705, height - 990 - (88*i), 50, 50, mask="auto")
 
     for i in range (0,5):
@@ -823,7 +823,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
 
     for j in range (0,3):
         for i in range (0,3):
-            image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_3_comp_sectors.loc[i + (j*3),'symbol'][0:4]}.webp").content))
+            image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp-sea/logo/{top_3_comp_sectors.loc[i + (j*3),'symbol'][0:4]}.webp").content))
             pdf.drawImage(image, 162 + (j*330), 756 - (i*75), 26,26, mask="auto")
             pdf.setFont("Inter", 18)
             pdf.setFillColor(colors.white)
@@ -909,7 +909,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
             pdf.drawString(number_x, y_number, number)
 
     # Top volume Traded
-    image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_volume.loc[0,'symbol'][0:4]}.webp").content))
+    image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp-sea/logo/{top_volume.loc[0,'symbol'][0:4]}.webp").content))
     pdf.drawImage(image, 158, 429-110, 63,63, mask="auto")
     pdf.setFont("Inter", 40)
     pdf.setFillColor(colors.white)
@@ -922,7 +922,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
         center = 193 + (i * 105)  # 193 = 168 + 25 (half logo width)
 
         # Draw logo first, centered
-        image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_volume.loc[i+1,'symbol'][0:4]}.webp").content))
+        image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp-sea/logo/{top_volume.loc[i+1,'symbol'][0:4]}.webp").content))
         pdf.drawImage(image, center - 25, 240, 50, 50, mask='auto')
 
         # Draw symbol, centered
@@ -946,7 +946,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
         pdf.drawString(number_x, number_y, number)
 
     # Top value Traded
-    image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_value.loc[0,'symbol'][0:4]}.webp").content))
+    image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp-sea/logo/{top_value.loc[0,'symbol'][0:4]}.webp").content))
     pdf.drawImage(image, 658, 429-110, 63,63, mask="auto")
     pdf.setFont("Inter", 40)
     pdf.setFillColor(colors.white)
@@ -959,7 +959,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
         center = 668 + (i * 105) + 25  # 668 + (i*105) is the left corner, 25 is half of logo width (50/2)
 
         # Draw logo first, centered
-        image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp/logo/{top_value.loc[i+1,'symbol'][0:4]}.webp").content))
+        image = ImageReader(BytesIO(requests.get(f"https://storage.googleapis.com/sectorsapp-sea/logo/{top_value.loc[i+1,'symbol'][0:4]}.webp").content))
         pdf.drawImage(image, center - 25, 240, 50, 50, mask='auto')
 
         # Draw symbol, centered
@@ -1081,7 +1081,7 @@ def create_weekly_report(hist_mcap, mcap_changes,top_gainers_losers,indices_chan
                 pdf.drawString(215, y_pos+52,stock)
             else:
                 pdf.drawString(261, y_pos+52,stock)
-                pdf.drawImage(f"https://storage.googleapis.com/sectorsapp/logo/{stock}.webp", 196, y_pos+38, 49,49, mask="auto")
+                pdf.drawImage(f"https://storage.googleapis.com/sectorsapp-sea/logo/{stock}.webp", 196, y_pos+38, 49,49, mask="auto")
 
         if label == "Dividend and Upcoming Dividend":
             create_ca_date_and_stock(y_pos, f"{df.iloc[i]['ex_date'].day}",f"{df.iloc[i]['ex_date'].strftime('%b')}",df.iloc[i]['symbol'][0:4], label)
@@ -2098,7 +2098,7 @@ ORDER BY ssr.rank_sub_sec, daily_change.rn
     print("✅ JSON created")
 
     #Send Email
-    send_email_batched(output_dir)
+    # send_email_batched(output_dir)
 
 if __name__ == "__main__":
     main()
