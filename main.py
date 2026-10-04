@@ -1887,6 +1887,7 @@ daily_change AS (
         WHERE sub_sector IN (
             SELECT sub_sector 
             FROM idx_sector_report
+            where sub_sector != 'Alternative Energy' 
             ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric) DESC
             LIMIT 3
         )
@@ -1901,6 +1902,7 @@ sub_sec_rank AS (
             ORDER BY ABS((mcap_summary::jsonb->'mcap_change'->>'1w')::numeric) DESC
         ) AS rank_sub_sec
     FROM idx_sector_report
+    where sub_sector != 'Alternative Energy' 
     LIMIT 3
 )
 SELECT 
